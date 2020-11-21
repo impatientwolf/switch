@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <StackPane minHeight="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #152238;" BorderPane.alignment="CENTER">
+         <children>
+            <Circle fx:id="c1" fill="#152238" radius="146.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
+               <effect>
+                  <Bloom threshold="0.34" />
+               </effect></Circle>
+            <Circle fx:id="c2" fill="#142136" radius="100.0" stroke="#254ddd" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 64;">
+               <effect>
+                  <Bloom threshold="0.25" />
+               </effect></Circle>
+            <Circle fx:id="c3" fill="#152238" radius="64.0" stroke="#9345f8" strokeWidth="11.0" style="-fx-stroke-dash-array: 40;">
+               <effect>
+                  <Bloom threshold="0.37" />
+               </effect></Circle>
+<!--            <fx:define>-->
+<!--               <Image fx:id="btnImage" url="@images/image.png" />-->
+<!--            </fx:define>-->
+
+            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" style="-fx-background-radius: 100;">
+            <graphic>
+               <ImageView fitHeight="85.0" fitWidth="85.0">
+               <image>
+                  <Image url="@image/image.png" />
+                       </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <effect>
+                        <DropShadow>
+                           <input>
+                              <Bloom threshold="0.93" />
+                           </input>
+                           <color>
+                              <Color red="1.0" green="0.8437725901603699" blue="0.25" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+               </ImageView>
+
+            </graphic>
+         </Button>
+
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
