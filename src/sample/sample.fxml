@@ -8,19 +8,19 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #152238;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
-      <StackPane prefHeight="626.0" prefWidth="1080.0" style="-fx-background-color: #152238;" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="626.0" prefWidth="1080.0" style="-fx-background-color: #040f06;" BorderPane.alignment="CENTER">
          <children>
-            <Circle fx:id="c1" fill="#152238" radius="140.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
+            <Circle fx:id="c1" fill="#040f06" radius="140.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
                <effect>
                   <Bloom threshold="0.34" />
                </effect></Circle>
-            <Circle fx:id="c2" fill="#142136" radius="100.0" stroke="#254ddd" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 64;">
+            <Circle fx:id="c2" fill="#040f06" radius="100.0" stroke="#254ddd" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 64;">
                <effect>
                   <Bloom threshold="0.25" />
                </effect></Circle>
-            <Circle fx:id="c3" fill="#152238" radius="64.0" stroke="#9345f8" strokeWidth="11.0" style="-fx-stroke-dash-array: 40;">
+            <Circle fx:id="c3" fill="#040f06" radius="64.0" stroke="#9345f8" strokeWidth="11.0" style="-fx-stroke-dash-array: 40;">
                <effect>
                   <Bloom threshold="0.37" />
                </effect></Circle>

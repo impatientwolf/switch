@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #152238;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="882.0" layoutY="29.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPauseScene" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100;">
                <graphic>
@@ -26,7 +29,46 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Arc fx:id="a2" fill="#040f06" layoutX="509.0" layoutY="197.0" length="90.0" radiusX="70.0" radiusY="70.0" stroke="#05ff0d" strokeWidth="15.0">
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect></Arc>
+            <Arc fx:id="a3" fill="#040f06" layoutX="509.0" layoutY="213.0" length="90.0" radiusX="70.0" radiusY="70.0" startAngle="270.0" stroke="AQUA" strokeWidth="15.0">
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect></Arc>
+            <Arc fx:id="a1" fill="#040f06" layoutX="493.0" layoutY="197.0" length="90.0" radiusX="70.0" radiusY="70.0" startAngle="90.0" stroke="RED" strokeWidth="15.0">
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect></Arc>
+            <Arc fx:id="a4" fill="#040f06" layoutX="493.0" layoutY="213.0" length="90.0" radiusX="70.0" radiusY="70.0" startAngle="180.0" stroke="#ffec00" strokeWidth="15.0">
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect></Arc>
+            <Text fill="WHITE" layoutX="40.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C    LOR SWITCH" textAlignment="CENTER" wrappingWidth="428.13671875">
+               <font>
+                  <Font name="Arial Bold" size="50.0" />
+               </font>
+            </Text>
+            <Circle fx:id="smallC" fill="#040f06" layoutX="115.0" layoutY="59.0" radius="22.0" stroke="#00ebfc" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+               <effect>
+                  <Bloom threshold="0.63" />
+               </effect></Circle>
          </children>
       </AnchorPane>
-   </center>
+   </top>
+   <bottom>
+      <Circle fill="#7a3eeb" radius="15.0" stroke="#7a3eeb" strokeType="INSIDE" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" />
+         </BorderPane.margin>
+         <effect>
+            <DropShadow height="56.58" radius="24.085" spread="0.25" width="41.76">
+               <color>
+                  <Color red="0.47843137383461" green="0.24313725531101227" blue="0.9215686321258545" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Circle>
+   </bottom>
 </BorderPane>
