@@ -12,17 +12,20 @@
    <center>
       <StackPane prefHeight="626.0" prefWidth="1080.0" style="-fx-background-color: #040f06;" BorderPane.alignment="CENTER">
          <children>
-            <Circle fx:id="c1" fill="#040f06" radius="140.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
+            <Circle fx:id="c1" fill="#040f06" radius="140.0" stroke="#03ffe6" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
                <effect>
                   <Bloom threshold="0.34" />
                </effect></Circle>
-            <Circle fx:id="c2" fill="#040f06" radius="100.0" stroke="#254ddd" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 64;">
+            <Circle fx:id="c2" fill="#040f06" radius="100.0" stroke="#483fff" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 64;">
                <effect>
                   <Bloom threshold="0.25" />
                </effect></Circle>
-            <Circle fx:id="c3" fill="#040f06" radius="64.0" stroke="#9345f8" strokeWidth="11.0" style="-fx-stroke-dash-array: 40;">
+            <Circle fx:id="c3" fill="#040f06" radius="64.0" stroke="#ff46e0" strokeWidth="11.0" style="-fx-stroke-dash-array: 40;">
                <effect>
-                  <Bloom threshold="0.37" />
+                  <Bloom threshold="0.0">
+                     <input>
+                        <DropShadow />
+                     </input></Bloom>
                </effect></Circle>
 <!--            <fx:define>-->
 <!--               <Image fx:id="btnImage" url="@images/image.png" />-->
