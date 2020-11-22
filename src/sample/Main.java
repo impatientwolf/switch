@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 //    public Stage window;
-
+// #boycott iiitd
     @Override
     public void start(Stage primaryStage) throws Exception{
 //        window=primaryStage;
