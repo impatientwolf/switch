@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #152238;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller"/>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #152238;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="415.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;">
+               <graphic>
+                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/laod2.png" />
+                     </image>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.9473684430122375" green="0.2017543911933899" blue="0.40058478713035583" />
+                           </color>
+                           <input>
+                              <Bloom threshold="0.61" />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="540.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;">
+               <graphic>
+                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: 2;">
+                     <image>
+                        <Image url="@image/save.png" />
+                     </image>
+                     <effect>
+                        <DropShadow>
+                           <input>
+                              <Bloom threshold="0.84" />
+                           </input>
+                           <color>
+                              <Color red="1.0" green="0.8777777552604675" blue="0.18518517911434174" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
