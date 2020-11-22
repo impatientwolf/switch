@@ -31,32 +31,43 @@ public class Controller implements Initializable {
     private ImageView playImage;
     @FXML
     private ImageView settingsImage;
-
-
+    @FXML
+    private ImageView loadImage;
+    @FXML
+    private ImageView playImage1;
+    @FXML
+    private ImageView saveImage1;
+    @FXML
+    private ImageView saveImage;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setRotate(c1,true,360,10);
-        setRotate(c2,false,360,10);
-        setRotate(c3,true,360,10);
-        setRotate(playImage,false,360,10);
-        setRotate(settingsImage,true,360,10);
+        setRotate(c1, true, 360, 10);
+        setRotate(c2, false, 360, 10);
+        setRotate(c3, true, 360, 10);
+        setRotate(playImage, false, 360, 10);
+        setRotate(playImage1, false, 360, 10);
+        setRotate(settingsImage, true, 360, 10);
+        setRotate(loadImage, true, 360, 10);
+        setRotate(saveImage, true, 360, 10);
+        setRotate(saveImage1, true, 360, 10);
 
     }
 
-    private void setRotate(Circle c, boolean reverse,int angle, int duration) {
+    private void setRotate(Circle c, boolean reverse, int angle, int duration) {
 
-        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(duration),c);
+        RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
         rotateTransition.setByAngle(angle);
         rotateTransition.setRate(7);
         rotateTransition.setCycleCount(90);
         rotateTransition.play();
     }
-    private void setRotate(ImageView c, boolean reverse,int angle, int duration) {
 
-        RotateTransition rotateTransition=new RotateTransition(Duration.seconds(duration),c);
+    private void setRotate(ImageView c, boolean reverse, int angle, int duration) {
+
+        RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
         rotateTransition.setByAngle(angle);
         rotateTransition.setRate(7);
@@ -67,9 +78,9 @@ public class Controller implements Initializable {
 
     public void moveToPlayScreen(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
-        Scene playscreen=new Scene(root);
+        Scene playscreen = new Scene(root);
 
-        Stage playstage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 //        playstage.setTitle("PlayScreen");
         playstage.setScene(playscreen);
         playstage.show();
@@ -79,13 +90,23 @@ public class Controller implements Initializable {
 
     public void openSettingsScene(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("settingsScreen.fxml"));
-        Scene playscreen=new Scene(root);
+        Scene playscreen = new Scene(root);
 
-        Stage playstage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 //        playstage.setTitle("PlayScreen");
         playstage.setScene(playscreen);
         playstage.show();
 
+    }
+
+    public void openPauseScene(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("pausescreen.fxml"));
+        Scene playscreen = new Scene(root);
+
+        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//        playstage.setTitle("PlayScreen");
+        playstage.setScene(playscreen);
+        playstage.show();
     }
 }
 

@@ -12,7 +12,7 @@
    <center>
       <StackPane prefHeight="626.0" prefWidth="1080.0" style="-fx-background-color: #152238;" BorderPane.alignment="CENTER">
          <children>
-            <Circle fx:id="c1" fill="#152238" radius="146.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
+            <Circle fx:id="c1" fill="#152238" radius="140.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
                <effect>
                   <Bloom threshold="0.34" />
                </effect></Circle>
@@ -68,9 +68,9 @@
                         <Image url="@image/settings3png.png" />
                      </image>
                      <effect>
-                        <DropShadow>
+                        <DropShadow spread="0.15">
                            <color>
-                              <Color red="1.0" green="0.5479166507720947" blue="0.125" />
+                              <Color red="1.0" green="0.4888888895511627" blue="0.0416666679084301" />
                            </color>
                            <input>
                               <Bloom threshold="0.57" />
@@ -84,6 +84,31 @@
                </BorderPane.margin>
             </Button>
          </left>
+         <right>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 100;" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/exit.png" />
+                     </image>
+                     <effect>
+                        <Bloom threshold="0.73">
+                           <input>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.5069810152053833" green="0.8684210777282715" blue="0.12061403691768646" />
+                                 </color>
+                              </DropShadow>
+                           </input>
+                        </Bloom>
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets right="30.0" top="-49.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
       </BorderPane>
    </top>
 </BorderPane>

@@ -10,9 +10,9 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="415.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;">
+            <Button layoutX="345.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;">
                <graphic>
-                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="loadImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/laod2.png" />
                      </image>
@@ -29,19 +29,19 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="540.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;">
+            <Button layoutX="618.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;">
                <graphic>
-                  <ImageView fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: 2;">
+                  <ImageView fx:id="saveImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@image/save.png" />
+                        <Image url="@image/save2.png" />
                      </image>
                      <effect>
-                        <DropShadow>
+                        <DropShadow spread="0.21">
                            <input>
-                              <Bloom threshold="0.84" />
+                              <Bloom threshold="0.9" />
                            </input>
                            <color>
-                              <Color red="1.0" green="0.8777777552604675" blue="0.18518517911434174" />
+                              <Color red="0.2785493731498718" green="1.0" blue="0.13425925374031067" />
                            </color>
                         </DropShadow>
                      </effect>
