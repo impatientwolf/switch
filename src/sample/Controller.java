@@ -29,6 +29,9 @@ public class Controller implements Initializable {
     private Circle c3;
     @FXML
     private ImageView playImage;
+    @FXML
+    private ImageView settingsImage;
+
 
 
 
@@ -38,6 +41,7 @@ public class Controller implements Initializable {
         setRotate(c2,false,360,10);
         setRotate(c3,true,360,10);
         setRotate(playImage,false,360,10);
+        setRotate(settingsImage,true,360,10);
 
     }
 
@@ -70,6 +74,17 @@ public class Controller implements Initializable {
         playstage.setScene(playscreen);
         playstage.show();
 
+
+    }
+
+    public void openSettingsScene(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("settingsScreen.fxml"));
+        Scene playscreen=new Scene(root);
+
+        Stage playstage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+//        playstage.setTitle("PlayScreen");
+        playstage.setScene(playscreen);
+        playstage.show();
 
     }
 }

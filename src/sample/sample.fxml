@@ -8,9 +8,9 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #152238;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
-      <StackPane minHeight="-Infinity" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #152238;" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="626.0" prefWidth="1080.0" style="-fx-background-color: #152238;" BorderPane.alignment="CENTER">
          <children>
             <Circle fx:id="c1" fill="#152238" radius="146.0" stroke="#1bae8e" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 90;">
                <effect>
@@ -53,6 +53,37 @@
          </Button>
 
          </children>
+         <BorderPane.margin>
+            <Insets top="-173.0" />
+         </BorderPane.margin>
       </StackPane>
    </center>
+   <top>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="177.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+         <left>
+            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openSettingsScene" prefHeight="69.0" prefWidth="70.0" style="-fx-background-radius: 100;" translateY="1.0" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fx:id="settingsImage" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/settings3png.png" />
+                     </image>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="0.5479166507720947" blue="0.125" />
+                           </color>
+                           <input>
+                              <Bloom threshold="0.57" />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets left="30.0" top="-49.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+      </BorderPane>
+   </top>
 </BorderPane>
