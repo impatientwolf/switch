@@ -2,7 +2,9 @@
 package sample;
 
         import javafx.animation.RotateTransition;
+        import javafx.beans.property.SimpleObjectProperty;
         import javafx.event.ActionEvent;
+        import javafx.event.EventHandler;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.fxml.Initializable;
@@ -10,17 +12,21 @@ package sample;
         import javafx.scene.Parent;
         import javafx.scene.Scene;
         import javafx.scene.image.ImageView;
+        import javafx.scene.input.MouseEvent;
+        import javafx.scene.layout.Pane;
+        import javafx.scene.paint.Color;
         import javafx.scene.shape.Arc;
         import javafx.scene.shape.Circle;
         import javafx.stage.Stage;
         import javafx.util.Duration;
 
+        import javax.crypto.Cipher;
         import javax.swing.*;
         import java.io.IOException;
         import java.net.URL;
         import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller<onMouseClicked> implements Initializable {
 
     @FXML
     private Circle c1;
@@ -50,6 +56,8 @@ public class Controller implements Initializable {
     private Arc a4;
     @FXML
     private Circle smallC;
+   /* @FXML
+    private onMouseClicked onMouseClick;*/
 
 
     @Override
@@ -81,6 +89,7 @@ public class Controller implements Initializable {
         rotateTransition.setCycleCount(90);
         rotateTransition.play();
     }
+
     private void setRotate(Arc c, boolean reverse, int angle, int duration) {
 
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
@@ -101,25 +110,36 @@ public class Controller implements Initializable {
         rotateTransition.play();
     }
 
+    private Circle ball = new Circle();
 
     public void moveToPlayScreen(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
-        Scene playscreen = new Scene(root);
-
+        Pane root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
+        Scene scene = new Scene(root);
         Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//        playstage.setTitle("PlayScreen");
-        playstage.setScene(playscreen);
+        playstage.setScene(scene);
         playstage.show();
-
+        new ClassBall(ball, 500.0, 659.0, 22.0);
+        ball.setCenterX(500);
+        ball.setCenterY(659);
+        root.getChildren().add(ball);
+        ball.setFill(Color.RED);
 
     }
+
+    public void onMouseClick(MouseEvent mouseEvent) {
+        ball.setCenterX(ball.getCenterX()+80);
+        System.out.println(ball.getCenterX());
+        System.out.println(ball.getCenterY());
+    }
+
 
     public void openSettingsScene(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("settingsScreen.fxml"));
         Scene playscreen = new Scene(root);
 
+        // root.getChildrenUnmodifiable().add();
         Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//        playstage.setTitle("PlayScreen");
+        playstage.setTitle("PlayScreen");
         playstage.setScene(playscreen);
         playstage.show();
 
@@ -134,6 +154,7 @@ public class Controller implements Initializable {
         playstage.setScene(playscreen);
         playstage.show();
     }
+
 }
 
 
