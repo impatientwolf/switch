@@ -12,7 +12,7 @@
    <right>
       <AnchorPane onMouseClicked="#onMouseClicked" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="882.0" layoutY="29.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPauseScene" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100;">
+            <Button layoutX="882.0" layoutY="29.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openPauseScene" onMouseClicked="#openPauseScene" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100;">
                <graphic>
                   <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>

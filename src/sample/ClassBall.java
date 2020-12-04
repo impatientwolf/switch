@@ -14,7 +14,7 @@ public class ClassBall {
 private static long last;
 private static long counter=0;
 private static double Yvelocity=-1;
-private int count2;
+
 
     public static long getLast() {
         return last;
@@ -66,7 +66,6 @@ private int count2;
                    last=now;
                }
                 //System.out.println(Thread.currentThread().getName());
-
             }
         };
         return animator;
