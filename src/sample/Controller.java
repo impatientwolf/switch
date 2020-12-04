@@ -13,6 +13,7 @@ package sample;
         import javafx.scene.Scene;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.MouseEvent;
+        import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.Pane;
         import javafx.scene.paint.Color;
         import javafx.scene.shape.Arc;
@@ -46,18 +47,7 @@ public class Controller<onMouseClicked> implements Initializable {
     private ImageView saveImage1;
     @FXML
     private ImageView saveImage;
-    @FXML
-    private Arc a1;
-    @FXML
-    private Arc a2;
-    @FXML
-    private Arc a3;
-    @FXML
-    private Arc a4;
-    @FXML
-    private Circle smallC;
-   /* @FXML
-    private onMouseClicked onMouseClick;*/
+
 
 
     @Override
@@ -65,11 +55,7 @@ public class Controller<onMouseClicked> implements Initializable {
         setRotate(c1, true, 360, 10);
         setRotate(c2, false, 360, 10);
         setRotate(c3, true, 360, 10);
-        setRotate(a1, true, 360, 10);
-        setRotate(a2, true, 360, 10);
-        setRotate(a3, true, 360, 10);
-        setRotate(a4, true, 360, 10);
-        setRotate(smallC, true, 360, 10);
+
 
         setRotate(playImage, false, 360, 10);
         setRotate(playImage1, false, 360, 10);
@@ -110,27 +96,17 @@ public class Controller<onMouseClicked> implements Initializable {
         rotateTransition.play();
     }
 
-    private Circle ball = new Circle();
+
 
     public void moveToPlayScreen(ActionEvent actionEvent) throws IOException {
         Pane root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
         Scene scene = new Scene(root);
         Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        BackgroundCanvas canvas=new BackgroundCanvas();
         playstage.setScene(scene);
         playstage.show();
-        new ClassBall(ball, 500.0, 659.0, 22.0);
-        ball.setCenterX(500);
-        ball.setCenterY(659);
-        root.getChildren().add(ball);
-        ball.setFill(Color.RED);
-
     }
 
-    public void onMouseClick(MouseEvent mouseEvent) {
-        ball.setCenterX(ball.getCenterX()+80);
-        System.out.println(ball.getCenterX());
-        System.out.println(ball.getCenterY());
-    }
 
 
     public void openSettingsScene(ActionEvent actionEvent) throws IOException {
@@ -145,15 +121,7 @@ public class Controller<onMouseClicked> implements Initializable {
 
     }
 
-    public void openPauseScene(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("pausescreen.fxml"));
-        Scene playscreen = new Scene(root);
 
-        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//        playstage.setTitle("PlayScreen");
-        playstage.setScene(playscreen);
-        playstage.show();
-    }
 
 }
 
