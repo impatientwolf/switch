@@ -120,6 +120,13 @@ public class Controller<onMouseClicked> implements Initializable {
         playstage.show();
 
     }
+    public void openPauseScene(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("pausescreen.fxml"));
+        Scene playscreen = new Scene(root);
+        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        playstage.setScene(playscreen);
+        playstage.show();
+    }
 
 
 
