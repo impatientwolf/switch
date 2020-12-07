@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-public class ClassBall {
+public class ClassBall implements Runnable {
 private static long last;
 private static long counter=0;
 private static double Yvelocity=-1;
@@ -50,10 +50,15 @@ private static double Yvelocity=-1;
             public void handle(long now) {
               if(now-last>100){
                    if(counter<=40){
+                    if(ball.getCenterY()<=-163){
+                        counter=41;
+                    }
+                        else{
                        ball.setCenterY(ball.getCenterY()+Yvelocity);
                        counter++;
+
                        //Yvelocity=Yvelocity-0.01;
-                   }
+                   }}
                    else {
                        if(ball.getCenterY()<=0){
                            ball.setCenterY(ball.getCenterY()-Yvelocity);
@@ -72,5 +77,8 @@ private static double Yvelocity=-1;
     }
 
 
+    @Override
+    public void run() {
 
+    }
 }
