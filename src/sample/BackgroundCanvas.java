@@ -1,9 +1,11 @@
 package sample;
 
-import javafx.animation.AnimationTimer;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,8 +16,11 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.Duration;
+import java.util.ResourceBundle;
 
-public class BackgroundCanvas {
+public class BackgroundCanvas implements Initializable {
     @FXML
     private Arc a1;
     @FXML
@@ -26,15 +31,24 @@ public class BackgroundCanvas {
     private Arc a4;
     @FXML
     private Circle smallC;
-    /* @FXML
-     private onMouseClicked onMouseClick;*/
     @FXML
     private Circle myBall;
+    @FXML
+    private Group arcGroup;
+
+    Controller cont =new Controller();
 
     private final ClassBall obj =new ClassBall();
     private AnimationTimer animator;
     private int animatorFlag=0;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        cont.setRotate(smallC,false,360,10);
+
+            cont.setRotate(arcGroup,false,360,20);
+
+    }
 
 
     public void onMouseClicked(MouseEvent mouseEvent) throws InterruptedException {
@@ -57,7 +71,7 @@ public class BackgroundCanvas {
     }
 
     public void openPauseScene(ActionEvent actionEvent) throws IOException {
-     Controller obj=new Controller();
-     obj.openPauseScene(actionEvent);
+     cont.openPauseScene(actionEvent);
+
     }
 }

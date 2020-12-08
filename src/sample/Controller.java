@@ -8,6 +8,7 @@ package sample;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.fxml.Initializable;
+        import javafx.scene.Group;
         import javafx.scene.Node;
         import javafx.scene.Parent;
         import javafx.scene.Scene;
@@ -29,6 +30,7 @@ package sample;
 
 public class Controller<onMouseClicked> implements Initializable {
 
+    public AnchorPane anchorPane;
     @FXML
     private Circle c1;
     @FXML
@@ -66,7 +68,7 @@ public class Controller<onMouseClicked> implements Initializable {
 
     }
 
-    private void setRotate(Circle c, boolean reverse, int angle, int duration) {
+    public void setRotate(Circle c, boolean reverse, int angle, int duration) {
 
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
@@ -76,7 +78,7 @@ public class Controller<onMouseClicked> implements Initializable {
         rotateTransition.play();
     }
 
-    private void setRotate(Arc c, boolean reverse, int angle, int duration) {
+    public void setRotate(Group c, boolean reverse, int angle, int duration) {
 
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
@@ -86,7 +88,7 @@ public class Controller<onMouseClicked> implements Initializable {
         rotateTransition.play();
     }
 
-    private void setRotate(ImageView c, boolean reverse, int angle, int duration) {
+    public void setRotate(ImageView c, boolean reverse, int angle, int duration) {
 
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
@@ -102,7 +104,7 @@ public class Controller<onMouseClicked> implements Initializable {
         Pane root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
         Scene scene = new Scene(root);
         Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        BackgroundCanvas canvas=new BackgroundCanvas();
+//        BackgroundCanvas canvas=new BackgroundCanvas();
         playstage.setScene(scene);
         playstage.show();
     }
@@ -129,7 +131,22 @@ public class Controller<onMouseClicked> implements Initializable {
     }
 
 
+    public void playButtonClicked(ActionEvent actionEvent) throws IOException{
+          moveToPlayScreen(actionEvent);
+//        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//        playstage.setScene(((Node) actionEvent.getSource()).getScene());
+//        playstage.show();
+    }
 
+    public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Scene scene=new Scene(root);
+        Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setTitle("Color Switch");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
 }
 
 

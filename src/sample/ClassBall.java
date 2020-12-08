@@ -10,10 +10,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import static java.lang.Thread.sleep;
+
 public class ClassBall implements Runnable {
 private static long last;
 private static long counter=0;
-private static double Yvelocity=-1;
+private static double Yvelocity=-4;
 
 
     public static long getLast() {
@@ -39,6 +41,7 @@ private static double Yvelocity=-1;
     public static void setYvelocity(double yvelocity) {
         Yvelocity = yvelocity;
     }
+    int flag=1;
 
     public ClassBall()  {
 
@@ -49,19 +52,28 @@ private static double Yvelocity=-1;
             @Override
             public void handle(long now) {
               if(now-last>100){
-                   if(counter<=40){
-                    if(ball.getCenterY()<=-163){
-                        counter=41;
+                   if(counter<=24){
+                    if(ball.getCenterY()<=-330){
+                        counter=25;
                     }
                         else{
                        ball.setCenterY(ball.getCenterY()+Yvelocity);
                        counter++;
 
                        //Yvelocity=Yvelocity-0.01;
-                   }}
+                   }
+                        flag=1;
+                   }
+
                    else {
+                       try {
+                           Sleep();
+                       } catch (InterruptedException e) {
+                           e.printStackTrace();
+                       }
                        if(ball.getCenterY()<=0){
-                           ball.setCenterY(ball.getCenterY()-Yvelocity);
+                           ball.setCenterY(ball.getCenterY()-Yvelocity*1.2);
+                           flag=0;
                        }
                        else {
                            this.stop();
@@ -80,5 +92,8 @@ private static double Yvelocity=-1;
     @Override
     public void run() {
 
+    }
+    public void Sleep() throws InterruptedException {
+        if(flag==1)sleep(90);
     }
 }
