@@ -36,7 +36,7 @@ public class BackgroundCanvas implements Initializable {
             private Group rectangle;
 
 
-
+//boycott IIITD
 
     Controller cont =new Controller();
 
