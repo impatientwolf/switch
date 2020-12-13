@@ -1,17 +1,31 @@
 package sample;
 
-import javafx.application.Application;
 import javafx.scene.Group;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Obstacle extends Application {
+public abstract class Obstacle  {
+    private static Group newArch;
+    private  static List<Obstacle> myList=new ArrayList<>(6);
+    Controller cont =new Controller();
+  public static void addObstacles(Pane p1){ //initial addition
+            for(int i=0;i<6;i++){
+              myList.add(new ArcGroup(newArch));
+            }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-    }
+
+
+
+  }
+
+   public static void temporyEquate(Group c){
+      newArch =c;
+   }
+
+
 
 }

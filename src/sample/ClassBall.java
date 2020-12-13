@@ -1,21 +1,15 @@
 package sample;
 
-import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
 
 import static java.lang.Thread.sleep;
 
-public class ClassBall implements Runnable {
-private static long last;
-private static long counter=0;
-private static double Yvelocity=-4;
+public class ClassBall  {
+    private static long last;
+    private static long counter=0;
+    private static double Yvelocity=-4;
+    private static int flag=1;
 
 
     public static long getLast() {
@@ -41,59 +35,51 @@ private static double Yvelocity=-4;
     public static void setYvelocity(double yvelocity) {
         Yvelocity = yvelocity;
     }
-    int flag=1;
 
+ private static BackgroundCanvas obj2=new BackgroundCanvas();
     public ClassBall()  {
 
     }
 
-    public AnimationTimer startTimeline(AnimationTimer animator,Circle ball){
-        animator=new AnimationTimer() {
+    public static AnimationTimer startTimeline(Circle ball){
+        AnimationTimer animator = new AnimationTimer() {
             @Override
             public void handle(long now) {
-              if(now-last>100){
-                   if(counter<=24){
-                    if(ball.getCenterY()<=-330){
-                        counter=25;
+                if (now - last > 100) {
+                    if (counter <= 24) {
+                        if (ball.getCenterY() <= -330) {
+                            counter = 25;
+                        } else {
+                            ball.setCenterY(ball.getCenterY() + Yvelocity);
+                            counter++;
+
+                            //Yvelocity=Yvelocity-0.01;
+                        }
+                        flag = 1;
+                    } else {
+                        try {
+                            Sleep();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (ball.getCenterY() <= 0) {
+                            ball.setCenterY(ball.getCenterY() - Yvelocity * 1.2);
+                            flag = 0;
+                        } else {
+                            this.stop();
+                            System.out.println("animation stopped");
+                        }
                     }
-                        else{
-                       ball.setCenterY(ball.getCenterY()+Yvelocity);
-                       counter++;
+                    last = now;
+                }
 
-                       //Yvelocity=Yvelocity-0.01;
-                   }
-                        flag=1;
-                   }
-
-                   else {
-                       try {
-                           Sleep();
-                       } catch (InterruptedException e) {
-                           e.printStackTrace();
-                       }
-                       if(ball.getCenterY()<=0){
-                           ball.setCenterY(ball.getCenterY()-Yvelocity*1.2);
-                           flag=0;
-                       }
-                       else {
-                           this.stop();
-                           System.out.println("animation stopped");
-                       }
-                   }
-                   last=now;
-               }
-                //System.out.println(Thread.currentThread().getName());
             }
         };
         return animator;
     }
 
 
-    @Override
-    public void run() {
-
-    }
-    public void Sleep() throws InterruptedException {
+    private static void Sleep() throws InterruptedException {
         if(flag==1)sleep(90);
     }
 }
