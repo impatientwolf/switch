@@ -77,7 +77,7 @@ public class Controller<onMouseClicked> implements Initializable {
         rotateTransition.play();
     }
 
-    public void setRotate2(Group c, boolean reverse, int angle, int duration) {
+    public void setRotate(Group c, boolean reverse, int angle, int duration) {
 
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
