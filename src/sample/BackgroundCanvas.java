@@ -32,6 +32,8 @@ public class BackgroundCanvas implements Initializable {
     private Circle myBall;
     @FXML
     private  Group arcGroup;
+    @FXML
+            private Group rectangle;
 
 
 
@@ -53,7 +55,8 @@ public class BackgroundCanvas implements Initializable {
         cont.setRotate(smallC,false,360,10);
       //smallC.setVisible(false);
          cont.setRotate2(arcGroup,false,360,20);
-       //this.arcGroup.setVisible(false);
+//         cont.setRotate2();
+       arcGroup.setVisible(false);
 
     }
 

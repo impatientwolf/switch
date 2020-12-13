@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
    <center>
       <AnchorPane fx:id="myPane" onKeyPressed="#onMouseClicked" onMouseClicked="#onMouseClicked" BorderPane.alignment="CENTER">
          <children>
@@ -71,6 +71,74 @@
                      </color>
                   </DropShadow>
                </effect></Circle>
+            <Group fx:id="rectangle" layoutX="500.0" layoutY="170.0" rotate="45.0" scaleX="0.8" scaleY="0.8">
+               <children>
+                  <Line endX="100.0" rotate="90.0" startX="-100.0" stroke="#fbff00" strokeWidth="15.0" translateX="100.0" />
+                  <Line endX="100.0" rotate="90.0" startX="-100.0" stroke="#00ffee" strokeWidth="15.0" translateX="-100.0" />
+                  <Line endX="100.0" startX="-100.0" stroke="#e11c1c" strokeWidth="15.0" translateY="100.0" />
+                  <Line endX="100.0" startX="-100.0" stroke="#00ff95" strokeWidth="15.0" translateY="-100.0" />
+               </children>
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect></Group>
+            <Group layoutX="500.0" layoutY="600.0" scaleX="0.9" scaleY="0.9">
+               <children>
+                  <Line endX="100.0" startX="-100.0" stroke="#f20000" strokeWidth="15.0" translateY="88.0" />
+                  <Line endX="100.0" rotate="60.0" startX="-100.0" stroke="#00fbff" strokeWidth="15.0" translateX="50.0" />
+                  <Line endX="100.0" rotate="-60.0" startX="-100.0" stroke="#ff00ea" strokeWidth="15.0" translateX="-50.0" />
+               </children>
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect>
+            </Group>
+            <Group fx:id="arcGroup1" layoutX="910.0" layoutY="404.0" rotate="45.0" scaleX="0.9" scaleY="0.9">
+               <children>
+                  <Arc fx:id="a21" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" stroke="#05ff0d" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+                  <Arc fx:id="a31" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" startAngle="270.0" stroke="AQUA" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+                  <Arc fx:id="a11" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="RED" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+                  <Arc fx:id="a41" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" startAngle="180.0" stroke="#ffec00" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+               </children>
+            </Group>
+            <Group fx:id="arcGroup11" layoutX="760.0" layoutY="404.0" rotate="-135.0" scaleX="0.9" scaleY="0.9">
+               <children>
+                  <Arc fx:id="a211" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" stroke="#05ff0d" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+                  <Arc fx:id="a311" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" startAngle="270.0" stroke="AQUA" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+                  <Arc fx:id="a111" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" startAngle="90.0" stroke="RED" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+                  <Arc fx:id="a411" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" startAngle="180.0" stroke="#ffec00" strokeWidth="15.0">
+                     <effect>
+                        <Bloom threshold="0.0" />
+                     </effect>
+                  </Arc>
+               </children>
+            </Group>
          </children>
       </AnchorPane>
    </center>
