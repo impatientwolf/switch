@@ -17,7 +17,7 @@ public class Rectangel extends Obstacle {
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), this.myRectangle);
         rotateTransition.setAutoReverse(reverse);
         rotateTransition.setByAngle(angle);
-        rotateTransition.setRate(7);
+        rotateTransition.setRate(2);
         rotateTransition.setCycleCount(90);
         rotateTransition.play();
 

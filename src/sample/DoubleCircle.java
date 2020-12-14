@@ -27,17 +27,16 @@ public double y2;
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), this.leftCircle);
         rotateTransition.setAutoReverse(reverse);
         rotateTransition.setByAngle(angle);
-        rotateTransition.setRate(7);
+        rotateTransition.setRate(2);
         rotateTransition.setCycleCount(90);
         rotateTransition.play();
         // do opposite of left
         RotateTransition rotateTransition2 = new RotateTransition(Duration.seconds(duration), this.rightCircle);
         rotateTransition2.setAutoReverse(reverse);
         rotateTransition2.setByAngle(angle);
-        rotateTransition2.setRate(7);
+        rotateTransition2.setRate(-2);
         rotateTransition2.setCycleCount(90);
         rotateTransition2.play();
-
 
     }
 
@@ -45,9 +44,9 @@ public double y2;
     public void arrangeMe(double x,double y) {
         this.Xlayout=x;
         this.Ylayout=y;
-        this.leftCircle.setLayoutX(x-15);
+        this.leftCircle.setLayoutX(x-80);
         this.leftCircle.setLayoutY(y);
-        this.rightCircle.setLayoutX(x+15);
+        this.rightCircle.setLayoutX(x+80);
         this.rightCircle.setLayoutY(y);
     }
 }

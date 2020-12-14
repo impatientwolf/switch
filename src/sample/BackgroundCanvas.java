@@ -45,6 +45,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     private static int counter=0;
     private static double Ycoordinate;
+    private static AnimationTimer obstacleTimeline;
 
     Controller cont =new Controller();
 
@@ -88,6 +89,8 @@ public class BackgroundCanvas implements Initializable,Runnable {
        myDoubleCircles.leftCircle.setVisible(true);
        myDoubleCircles.rightCircle.setVisible(true);
        Obstacle.arrangeObstacles(myList,myPane);
+        obstacleTimeline=this.updateCoordinates();
+
     }
 
 
@@ -114,8 +117,17 @@ public class BackgroundCanvas implements Initializable,Runnable {
                 //Runnable target;
                 //Thread t1=new Thread(new BackgroundCanvas());
                 //t1.start();
-                this.updateCoordinates();
-            };
+                //this.updateCoordinates();
+
+                /*Thread thread = new Thread("obstacle"){
+                    public void run() {
+                        System.out.println(Thread.currentThread().getName()+" was called");
+                        obstacleTimeline.start();
+                    }
+                };
+                thread.start();*/
+            obstacleTimeline.start();
+            }
 
         }
 
@@ -150,35 +162,34 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     }
 
-    private  void updateCoordinates(){
-        System.out.println("I was called");
+    private  AnimationTimer updateCoordinates(){
+        System.out.println("update was called");
      Iterator it =myList.iterator();
      double last=0;
-     new AnimationTimer() {
+     return new AnimationTimer() {
          @Override
          public void handle(long now) {
              if (now - last > 100){
                  //System.out.println("Phase 1 passed");
-                 if(counter<40){
-                     System.out.println("phase 2 passed");
-                 while (it.hasNext()){
-                     Object obj=it.next();
+                 if(counter<20){
+                    // System.out.println(Thread.currentThread().getName());
+                 for(int i=0;i<myList.size();i++){
+                     Object obj=myList.get(i);
                      if(obj instanceof ArcGroup){
-                         System.out.println("loop 1");
-                         ((ArcGroup) obj).arrangeMe(500,((ArcGroup) obj).Ylayout+40);
+                         ((ArcGroup) obj).arrangeMe(500,((ArcGroup) obj).Ylayout+4);
+                         System.out.println(((ArcGroup) obj).Ylayout);
+                         if(((ArcGroup) obj).arcGroup.isPickOnBounds()){
+                             System.out.println("Yesssssssssssssssss");
+                         }
                      }
                      else if(obj instanceof Rectangel){
-                         System.out.println("loop 2");
-                         ((Rectangel) obj).arrangeMe(500,((Rectangel) obj).Ylayout+40);
+                         ((Rectangel) obj).arrangeMe(500,((Rectangel) obj).Ylayout+4);
                      }
                      else if(obj instanceof Triangle){
-                         System.out.println("loop 3");
-                         ((Triangle) obj).arrangeMe(500,((Triangle) obj).Ylayout+40);
+                         ((Triangle) obj).arrangeMe(500,((Triangle) obj).Ylayout+4);
                      }
                      else{
-                         System.out.println("loop 4");
-                         ((DoubleCircle)obj).arrangeMe(500,((DoubleCircle) obj).Ylayout+40);
-                         System.out.println("loop 4_2");
+                         ((DoubleCircle)obj).arrangeMe(500,((DoubleCircle) obj).Ylayout+4);
                      }
                  }
                  counter++;
@@ -188,7 +199,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                  }
              }
          }
-     }.start();
+     };
 
 
 
@@ -197,6 +208,6 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     @Override
     public void run() {
-        this.updateCoordinates();
+        //this.updateCoordinates();
     }
 }
