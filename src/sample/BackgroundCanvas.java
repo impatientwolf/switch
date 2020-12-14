@@ -14,12 +14,10 @@ import javafx.scene.shape.Circle;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
-import java.util.TreeMap;
 
-public class BackgroundCanvas implements Initializable {
+public class BackgroundCanvas implements Initializable,Runnable {
     @FXML
     private  Pane myPane;
     @FXML
@@ -44,6 +42,9 @@ public class BackgroundCanvas implements Initializable {
     private Group doubleCircle_left;
     @FXML
     private Group doubleCircle_right;
+
+    private static int counter=0;
+    private static double Ycoordinate;
 
     Controller cont =new Controller();
 
@@ -106,9 +107,16 @@ public class BackgroundCanvas implements Initializable {
             ClassBall.setLast(0);
             animator.start();
             System.out.println("Animation just Started again");
+            counter=0;
+
             if(myBall.getCenterY()<-310){
-                updateCoordinates();
+
+                //Runnable target;
+                //Thread t1=new Thread(new BackgroundCanvas());
+                //t1.start();
+                this.updateCoordinates();
             };
+
         }
 
     }
@@ -142,12 +150,53 @@ public class BackgroundCanvas implements Initializable {
 
     }
 
-    private static void updateCoordinates(){
+    private  void updateCoordinates(){
+        System.out.println("I was called");
+     Iterator it =myList.iterator();
+     double last=0;
+     new AnimationTimer() {
+         @Override
+         public void handle(long now) {
+             if (now - last > 100){
+                 //System.out.println("Phase 1 passed");
+                 if(counter<40){
+                     System.out.println("phase 2 passed");
+                 while (it.hasNext()){
+                     Object obj=it.next();
+                     if(obj instanceof ArcGroup){
+                         System.out.println("loop 1");
+                         ((ArcGroup) obj).arrangeMe(500,((ArcGroup) obj).Ylayout+40);
+                     }
+                     else if(obj instanceof Rectangel){
+                         System.out.println("loop 2");
+                         ((Rectangel) obj).arrangeMe(500,((Rectangel) obj).Ylayout+40);
+                     }
+                     else if(obj instanceof Triangle){
+                         System.out.println("loop 3");
+                         ((Triangle) obj).arrangeMe(500,((Triangle) obj).Ylayout+40);
+                     }
+                     else{
+                         System.out.println("loop 4");
+                         ((DoubleCircle)obj).arrangeMe(500,((DoubleCircle) obj).Ylayout+40);
+                         System.out.println("loop 4_2");
+                     }
+                 }
+                 counter++;
+                 }
+                 else {
+                     this.stop();
+                 }
+             }
+         }
+     }.start();
+
 
 
     }
 
 
-
-
+    @Override
+    public void run() {
+        this.updateCoordinates();
+    }
 }

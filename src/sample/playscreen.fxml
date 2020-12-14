@@ -39,7 +39,7 @@
                   <Bloom threshold="0.63" />
                </effect>
             </Circle>
-            <Group fx:id="arcGroup" layoutX="500.0" layoutY="394.0" rotate="-45.0">
+            <Group fx:id="arcGroup" layoutX="508.0" layoutY="392.0" rotate="-45.0">
                <children>
                   <Arc fx:id="a2" fill="#040f06" length="90.0" radiusX="80.0" radiusY="80.0" stroke="#05ff0d" strokeWidth="15.0">
                      <effect>
@@ -81,9 +81,9 @@
                <effect>
                   <Bloom threshold="0.0" />
                </effect></Group>
-            <Group fx:id="triangle" layoutX="500.0" layoutY="600.0" scaleX="0.9" scaleY="0.9">
+            <Group fx:id="triangle" layoutX="154.0" layoutY="418.0" scaleX="0.9" scaleY="0.9">
                <children>
-                  <Line endX="100.0" startX="-100.0" stroke="#f20000" strokeWidth="15.0" translateY="88.0" />
+                  <Line endX="100.0" layoutX="-1.0" layoutY="96.0" startX="-100.0" stroke="#f20000" strokeWidth="15.0" />
                   <Line endX="100.0" rotate="60.0" startX="-100.0" stroke="#00fbff" strokeWidth="15.0" translateX="50.0" />
                   <Line endX="100.0" rotate="-60.0" startX="-100.0" stroke="#ff00ea" strokeWidth="15.0" translateX="-50.0" />
                </children>

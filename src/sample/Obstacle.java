@@ -31,19 +31,19 @@ public abstract class Obstacle {
             //System.out.println(it.next());
             Object obj=it.next();
            if(obj instanceof ArcGroup){
-                System.out.println("loop 1");
+                //System.out.println("loop 1");
                 ((ArcGroup) obj).arrangeMe(500,y);
             }
             else if(obj instanceof Rectangel){
-                System.out.println("loop 2");
+                //System.out.println("loop 2");
                 ((Rectangel) obj).arrangeMe(500,y);
             }
             else if(obj instanceof Triangle){
-                System.out.println("loop 3");
+                //System.out.println("loop 3");
                 ((Triangle) obj).arrangeMe(500,y);
             }
             else{
-                System.out.println("loop 4");
+                //System.out.println("loop 4");
                 ((DoubleCircle)obj).arrangeMe(500,y);
                 System.out.println("loop 4_2");
             }
