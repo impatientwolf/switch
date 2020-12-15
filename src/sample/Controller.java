@@ -49,6 +49,8 @@ public class Controller<onMouseClicked> implements Initializable {
     @FXML
     private ImageView saveImage;
 
+    private Scene playScene;
+    private Stage primaryStage;
 
 
     @Override
@@ -64,6 +66,14 @@ public class Controller<onMouseClicked> implements Initializable {
         setRotate(loadImage, true, 360, 10);
         setRotate(saveImage, true, 360, 10);
         setRotate(saveImage1, true, 360, 15);
+        Pane root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        playScene = new Scene(root);
+        print();
 
     }
 
@@ -100,12 +110,12 @@ public class Controller<onMouseClicked> implements Initializable {
 
 
     public void moveToPlayScreen(ActionEvent actionEvent) throws IOException {
-        Pane root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
-        Scene scene = new Scene(root);
-        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        //BackgroundCanvas canvas=new BackgroundCanvas();
-        playstage.setScene(scene);
-        playstage.show();
+//        Pane root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
+//        playScene = new Scene(root);
+        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setScene(playScene);
+        primaryStage.show();
+//        playScene= ((Node) actionEvent.getSource()).getScene();
     }
 
 
@@ -115,24 +125,38 @@ public class Controller<onMouseClicked> implements Initializable {
         Scene playscreen = new Scene(root);
 
         // root.getChildrenUnmodifiable().add();
-        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        playstage.setTitle("PlayScreen");
-        playstage.setScene(playscreen);
-        playstage.show();
+        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setTitle("Settings");
+        primaryStage.setScene(playscreen);
+        primaryStage.show();
 
     }
     public void openPauseScene(ActionEvent actionEvent) throws IOException {
+//        playScene=((Node) actionEvent.getSource()).getScene();
         Parent root = FXMLLoader.load(getClass().getResource("pausescreen.fxml"));
         Scene playscreen = new Scene(root);
-        Stage playstage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        playstage.setScene(playscreen);
-        playstage.show();
+        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setTitle("PauseScreen");
+        primaryStage.setScene(playscreen);
+        primaryStage.show();
     }
 
 
-    public void backToHomeScreeen(ActionEvent actionEvent) {
-
+    public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setTitle("Color Switch");
+        Scene scene=new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
+    public void playButtonClicked(ActionEvent actionEvent) {
+        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setScene(playScene);
+        primaryStage.show();
+    }
+    public void print(){System.out.println("heyaaaaaaaaa");}
 }
 
 

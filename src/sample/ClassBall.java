@@ -8,7 +8,7 @@ import static java.lang.Thread.sleep;
 public class ClassBall  {
     private static long last;
     private static long counter=0;
-    private static double Yvelocity=-4;
+    private static double Yvelocity=-5;
     private static int flag=1;
 
 

@@ -90,6 +90,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
        myDoubleCircles.rightCircle.setVisible(true);
        Obstacle.arrangeObstacles(myList,myPane);
         obstacleTimeline=this.updateCoordinates();
+        print();
 
     }
 
@@ -222,5 +223,9 @@ public class BackgroundCanvas implements Initializable,Runnable {
     @Override
     public void run() {
         //this.updateCoordinates();
+    }
+
+    public void print(){
+        System.out.println("backcanvas heyaaa");
     }
 }
