@@ -43,13 +43,9 @@ public class Controller<onMouseClicked> implements Initializable {
     @FXML
     private ImageView loadImage;
     @FXML
-    private ImageView playImage1;
-    @FXML
-    private ImageView saveImage1;
-    @FXML
     private ImageView saveImage;
 
-    private Scene playScene;
+    public static Scene playScene;
     private Stage primaryStage;
 
 
@@ -61,11 +57,11 @@ public class Controller<onMouseClicked> implements Initializable {
 
 
         setRotate(playImage, false, 360, 10);
-        setRotate(playImage1, false, 360, 10);
+
         setRotate(settingsImage, true, 360, 10);
         setRotate(loadImage, true, 360, 10);
         setRotate(saveImage, true, 360, 10);
-        setRotate(saveImage1, true, 360, 15);
+
         Pane root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("playscreen.fxml"));
@@ -97,7 +93,7 @@ public class Controller<onMouseClicked> implements Initializable {
         rotateTransition.play();
     }
 
-    private void setRotate(ImageView c, boolean reverse, int angle, int duration) {
+    public void setRotate(ImageView c, boolean reverse, int angle, int duration) {
 
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(duration), c);
         rotateTransition.setAutoReverse(reverse);
@@ -142,20 +138,20 @@ public class Controller<onMouseClicked> implements Initializable {
     }
 
 
-    public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        primaryStage.setTitle("Color Switch");
-        Scene scene=new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public void playButtonClicked(ActionEvent actionEvent) {
-        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        primaryStage.setScene(playScene);
-        primaryStage.show();
-    }
+//    public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//        primaryStage.setTitle("Color Switch");
+//        Scene scene=new Scene(root);
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//    }
+//
+//    public void playButtonClicked(ActionEvent actionEvent) {
+//        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//        primaryStage.setScene(playScene);
+//        primaryStage.show();
+//    }
     public void print(){System.out.println("heyaaaaaaaaa");}
 }
 
