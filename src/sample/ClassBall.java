@@ -9,8 +9,16 @@ public class ClassBall  {
     private static long last;
     private static long counter=0;
     private static double Yvelocity=-5;
+    private static double nYvelocity=Yvelocity*1.1;
     private static int flag=1;
 
+    public static double getnYvelocity() {
+        return nYvelocity;
+    }
+
+    public static void setnYvelocity(double nYvelocity) {
+        ClassBall.nYvelocity = nYvelocity;
+    }
 
     public static long getLast() {
         return last;
@@ -63,7 +71,7 @@ public class ClassBall  {
                             e.printStackTrace();
                         }
                         if (ball.getCenterY() <= 0) {
-                            ball.setCenterY(ball.getCenterY() - Yvelocity * 1.2);
+                            ball.setCenterY(ball.getCenterY() - nYvelocity);
                             flag = 0;
                         } else {
                             this.stop();

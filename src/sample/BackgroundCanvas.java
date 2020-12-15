@@ -135,6 +135,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
     }
 
     public void openPauseScene(ActionEvent actionEvent) throws IOException {
+        ClassBall.setnYvelocity(0);
         cont.openPauseScene(actionEvent);
 
     }

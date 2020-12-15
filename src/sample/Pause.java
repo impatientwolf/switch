@@ -31,6 +31,7 @@ public class Pause implements Initializable {
 
 
     public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
+//        ClassBall.setYvelocity(5);
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         primaryStage.setTitle("Color Switch");
@@ -40,6 +41,7 @@ public class Pause implements Initializable {
     }
 
     public void playButtonClicked(ActionEvent actionEvent) {
+        ClassBall.setnYvelocity(-5);
         primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         primaryStage.setScene(Controller.playScene);
         primaryStage.show();
