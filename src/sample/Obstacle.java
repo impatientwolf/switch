@@ -45,14 +45,15 @@ public abstract class Obstacle {
             else{
                 //System.out.println("loop 4");
                 ((DoubleCircle)obj).arrangeMe(500,y);
-                System.out.println("loop 4_2");
+                //System.out.println("loop 4_2");
             }
-            y=y-300;
+            y=y-400;
             System.out.println(y);
         }
     }
 
     public abstract void arrangeMe(double x,double y);
+    public abstract void updateMyPosition(Pane p,List<Obstacle > myList,Obstacle o,int index,Group g);
 
 
 }

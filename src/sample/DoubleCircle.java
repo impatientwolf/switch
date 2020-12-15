@@ -2,7 +2,10 @@ package sample;
 
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+
+import java.util.List;
 
 public class DoubleCircle extends Obstacle{
 public Group leftCircle;
@@ -37,7 +40,6 @@ public double y2;
         rotateTransition2.setRate(-2);
         rotateTransition2.setCycleCount(90);
         rotateTransition2.play();
-
     }
 
     @Override
@@ -48,5 +50,15 @@ public double y2;
         this.leftCircle.setLayoutY(y);
         this.rightCircle.setLayoutX(x+80);
         this.rightCircle.setLayoutY(y);
+    }
+    @Override
+    public void updateMyPosition(Pane p, List<Obstacle> myList, Obstacle o, int index,Group g) {
+        p.getChildren().removeAll(((DoubleCircle)o).rightCircle,((DoubleCircle)o).leftCircle);
+        myList.remove(index);
+        o.arrangeMe(500,-765);
+        p.getChildren().addAll(((DoubleCircle)o).rightCircle,((DoubleCircle)o).leftCircle);
+        ((DoubleCircle)o).rightCircle.setVisible(true);
+        ((DoubleCircle)o).leftCircle.setVisible(true);
+        myList.add(o);
     }
 }

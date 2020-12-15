@@ -104,12 +104,12 @@ public class BackgroundCanvas implements Initializable,Runnable {
             animator.start();
         }
         else{
-            System.out.println("Animation just stopped due to multiple clicked");
+            //System.out.println("Animation just stopped due to multiple clicked");
             this.animator.stop();
             ClassBall.setCounter(0);
             ClassBall.setLast(0);
             animator.start();
-            System.out.println("Animation just Started again");
+            //System.out.println("Animation just Started again");
             counter=0;
 
             if(myBall.getCenterY()<-310){
@@ -174,22 +174,37 @@ public class BackgroundCanvas implements Initializable,Runnable {
                  if(counter<20){
                     // System.out.println(Thread.currentThread().getName());
                  for(int i=0;i<myList.size();i++){
-                     Object obj=myList.get(i);
+                     // write here if object goes out
+                     System.out.println(myList.toString());
+                     Obstacle obj=myList.get(i);
                      if(obj instanceof ArcGroup){
-                         ((ArcGroup) obj).arrangeMe(500,((ArcGroup) obj).Ylayout+4);
-                         System.out.println(((ArcGroup) obj).Ylayout);
-                         if(((ArcGroup) obj).arcGroup.isPickOnBounds()){
-                             System.out.println("Yesssssssssssssssss");
+                         if(obj.Ylayout>850){
+                             obj.updateMyPosition(myPane,myList,obj,i,((ArcGroup) obj).arcGroup);
+                             break;
                          }
+                         obj.arrangeMe(500, obj.Ylayout+4);
                      }
                      else if(obj instanceof Rectangel){
-                         ((Rectangel) obj).arrangeMe(500,((Rectangel) obj).Ylayout+4);
+                         if(obj.Ylayout>850){
+                             obj.updateMyPosition(myPane,myList,obj,i,((Rectangel) obj).myRectangle);
+                             break;
+                         }
+                         obj.arrangeMe(500, obj.Ylayout+4);
                      }
                      else if(obj instanceof Triangle){
-                         ((Triangle) obj).arrangeMe(500,((Triangle) obj).Ylayout+4);
+                         if(obj.Ylayout>850){
+                             obj.updateMyPosition(myPane,myList,obj,i,((Triangle) obj).myTriangle);
+                             // updateList(obj,((Triangle) obj).myTriangle,i);
+                             break;
+                         }
+                         obj.arrangeMe(500, obj.Ylayout+4);
                      }
                      else{
-                         ((DoubleCircle)obj).arrangeMe(500,((DoubleCircle) obj).Ylayout+4);
+                         if(obj.Ylayout>850){
+                             obj.updateMyPosition(myPane,myList,obj,i,((DoubleCircle) obj).leftCircle);
+                         break;
+                         }
+                         obj.arrangeMe(500, obj.Ylayout+4);
                      }
                  }
                  counter++;
@@ -197,12 +212,10 @@ public class BackgroundCanvas implements Initializable,Runnable {
                  else {
                      this.stop();
                  }
+                 System.out.println(myList.toString());
              }
          }
      };
-
-
-
     }
 
 
