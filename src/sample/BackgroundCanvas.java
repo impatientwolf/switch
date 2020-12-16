@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 
+import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +42,14 @@ public class BackgroundCanvas implements Initializable,Runnable {
     @FXML
     private Group doubleCircle_left;
     @FXML
+    private ImageView star1;
+    @FXML
+    private ImageView star2;
+    @FXML
+    private ImageView star3;
+    @FXML
     private Group doubleCircle_right;
+
 
     private static int counter=0;
     private static double Ycoordinate;
