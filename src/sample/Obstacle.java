@@ -54,6 +54,7 @@ public abstract class Obstacle {
 
     public abstract void arrangeMe(double x,double y);
     public abstract void updateMyPosition(Pane p,List<Obstacle > myList,Obstacle o,int index,Group g);
+    public abstract boolean checkCollision(Obstacle obj,Circle ball);
 
 
 }

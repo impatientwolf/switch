@@ -1,7 +1,12 @@
 package sample;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.Node;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.Shape;
+
+import java.awt.*;
 
 import static java.lang.Thread.sleep;
 
@@ -54,7 +59,13 @@ public class ClassBall  {
             @Override
             public void handle(long now) {
                 if (now - last > 100) {
-                    if (counter <= 24) {
+                    if((collisionChecker(ball))){
+
+                        //this.stop();
+                    }
+                    else{
+                    if (counter <= 20) {
+                        //TestFunction(ball);
                         if (ball.getCenterY() <= -330) {
                             counter = 25;
                         } else {
@@ -80,11 +91,23 @@ public class ClassBall  {
                     }
                     last = now;
                 }
+                }
 
             }
         };
         return animator;
     }
+
+    private static boolean collisionChecker(Circle ball) {
+        for(Obstacle obj:BackgroundCanvas.myList){
+            if(obj.checkCollision(obj,ball)){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 
 
     private static void Sleep() throws InterruptedException {

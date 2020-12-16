@@ -49,7 +49,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     Controller cont =new Controller();
 
-    private List<Obstacle > myList=new ArrayList<>(6);
+    public static List<Obstacle > myList=new ArrayList<>(6);
 
     private final ClassBall obj =new ClassBall();
     private AnimationTimer animator;
@@ -70,6 +70,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
        // System.out.println(myBall.getLayoutX());
         //System.out.println(myBall.getLayoutY());
+        System.out.println("i was called -- background");
         cont.setRotate(smallC,false,360,10);
        arcGroup.setVisible(false);
        rectangle.setVisible(false);
@@ -90,7 +91,8 @@ public class BackgroundCanvas implements Initializable,Runnable {
        myDoubleCircles.rightCircle.setVisible(true);
        Obstacle.arrangeObstacles(myList,myPane);
         obstacleTimeline=this.updateCoordinates();
-        print();
+        myPane.getChildren().remove(myBall);
+        myPane.getChildren().add(myBall);
 
     }
 
@@ -177,7 +179,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                     // System.out.println(Thread.currentThread().getName());
                  for(int i=0;i<myList.size();i++){
                      // write here if object goes out
-                     System.out.println(myList.toString());
+                     //System.out.println(myList.toString());
                      Obstacle obj=myList.get(i);
                      if(obj instanceof ArcGroup){
                          if(obj.Ylayout>850){
@@ -210,11 +212,12 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      }
                  }
                  counter++;
+
                  }
                  else {
                      this.stop();
                  }
-                 System.out.println(myList.toString());
+                 //System.out.println(myList.toString());
              }
          }
      };
@@ -224,9 +227,5 @@ public class BackgroundCanvas implements Initializable,Runnable {
     @Override
     public void run() {
         //this.updateCoordinates();
-    }
-
-    public void print(){
-        System.out.println("backcanvas heyaaa");
     }
 }

@@ -2,7 +2,11 @@ package sample;
 
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
 import java.util.List;
@@ -53,12 +57,41 @@ public double y2;
     }
     @Override
     public void updateMyPosition(Pane p, List<Obstacle> myList, Obstacle o, int index,Group g) {
-        p.getChildren().removeAll(((DoubleCircle)o).rightCircle,((DoubleCircle)o).leftCircle);
+        //p.getChildren().removeAll(((DoubleCircle)o).rightCircle,((DoubleCircle)o).leftCircle);
         myList.remove(index);
         o.arrangeMe(500,-765);
-        p.getChildren().addAll(((DoubleCircle)o).rightCircle,((DoubleCircle)o).leftCircle);
+        //p.getChildren().addAll(((DoubleCircle)o).rightCircle,((DoubleCircle)o).leftCircle);
         ((DoubleCircle)o).rightCircle.setVisible(true);
         ((DoubleCircle)o).leftCircle.setVisible(true);
         myList.add(o);
+    }
+
+    @Override
+    public boolean checkCollision(Obstacle obj, Circle ball) {
+        for (Node path:((DoubleCircle) obj).leftCircle.getChildren()){
+            if(((Path)(javafx.scene.shape.Shape.intersect(ball,(javafx.scene.shape.Shape)path))).getElements().size()>0){
+                System.out.println("Yessssssssssssssssssss");
+                System.out.println(ball.getFill());
+                System.out.println(((Shape) path).getStroke());
+                if(!((Shape) path).getStroke().toString().equals(ball.getFill().toString())){
+                    System.out.println(" ----------------------off same color");
+                    return true;
+                }
+            }
+        }
+        for (Node path:((DoubleCircle) obj).rightCircle.getChildren()){
+            if(((Path)(javafx.scene.shape.Shape.intersect(ball,(javafx.scene.shape.Shape)path))).getElements().size()>0){
+                System.out.println("Yessssssssssssssssssss");
+                System.out.println(ball.getFill());
+                System.out.println(((Shape) path).getStroke());
+                if(!((Shape) path).getStroke().toString().equals(ball.getFill().toString())){
+                    System.out.println(" ----------------------off different color");
+                    return true;
+                }
+            }
+        }
+
+
+        return false;
     }
 }
