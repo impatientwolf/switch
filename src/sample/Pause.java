@@ -30,7 +30,7 @@ public class Pause implements Initializable {
     }
 
 
-    public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
+    public void backToHomeScreen(ActionEvent actionEvent) throws IOException {
         ClassBall.setnYvelocity(-5);
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

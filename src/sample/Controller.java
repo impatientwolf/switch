@@ -138,7 +138,7 @@ public class Controller<onMouseClicked> implements Initializable {
     }
 
 
-//    public void backToHomeScreeen(ActionEvent actionEvent) throws IOException {
+//    public void backToHomeScreen(ActionEvent actionEvent) throws IOException {
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 //        primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 //        primaryStage.setTitle("Color Switch");
