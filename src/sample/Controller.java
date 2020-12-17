@@ -154,7 +154,7 @@ public class Controller<onMouseClicked> implements Initializable {
 //        primaryStage.setScene(playScene);
 //        primaryStage.show();
 //    }
-//    public void openGameoverScene() throws IOException{
+//    public  void openGameoverScene() throws IOException{
 //        Parent root = FXMLLoader.load(getClass().getResource("gameoverscreen.fxml"));
 //        Scene playscreen = new Scene(root);
 //        Stage primaryStage = new Stage();

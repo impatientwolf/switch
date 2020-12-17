@@ -188,9 +188,15 @@ public class ClassBall  {
         if(flag==1)sleep(90);
     }
 
-    public void restartButtonClicked(ActionEvent actionEvent) {
+    public void restartButtonClicked(ActionEvent actionEvent) throws IOException {
+        Controller controller=new Controller();
+        controller.moveToPlayScreen(actionEvent);
+
     }
 
-    public void spendButtonClicked(ActionEvent actionEvent) {
+    public void spendButtonClicked(ActionEvent actionEvent) throws IOException {
+        Controller controller=new Controller();
+        controller.moveToPlayScreen(actionEvent);
+
     }
 }
