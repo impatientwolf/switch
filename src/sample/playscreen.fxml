@@ -220,6 +220,7 @@
                   <Font size="36.0" />
                </font>
             </Label>
+            <Button layoutX="901.0" layoutY="200.0" mnemonicParsing="false" onAction="#load" text="Button" />
          </children>
       </Pane>
    </center>

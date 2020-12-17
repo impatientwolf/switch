@@ -317,4 +317,8 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     public void spendButtonClicked(ActionEvent actionEvent) {
     }
+
+    public void load(ActionEvent actionEvent) {
+
+    }
 }
