@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="456.0" layoutY="367.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100;">
+            <Button fx:id="saveButton" layoutX="456.0" layoutY="367.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100;">
                <graphic>
                   <ImageView fx:id="saveImage1" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>

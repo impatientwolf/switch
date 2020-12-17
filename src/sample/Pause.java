@@ -10,11 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Pause implements Initializable {
+public class Pause implements Initializable, Serializable {
     @FXML
     private ImageView playImage1;
     @FXML
@@ -37,6 +37,7 @@ public class Pause implements Initializable {
         primaryStage.setTitle("Color Switch");
         Scene scene=new Scene(root);
         primaryStage.setScene(scene);
+
         primaryStage.show();
     }
 
@@ -45,5 +46,13 @@ public class Pause implements Initializable {
         primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         primaryStage.setScene(Controller.playScene);
         primaryStage.show();
+    }
+
+    public void saveButtonClicked(ActionEvent actionEvent) throws IOException {
+//        File f=new File("obj.txt");
+//        FileOutputStream fos=new FileOutputStream(f);
+//        ObjectOutputStream oos=new ObjectOutputStream(fos);
+//        oos.writeObject();
+//        BackgroundCanvas.saveButtonClicked(actionEvent);
     }
 }

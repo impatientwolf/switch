@@ -22,6 +22,10 @@ import java.util.*;
 import java.util.List;
 
 public class BackgroundCanvas implements Initializable,Runnable {
+    public Circle colorSwitch1;
+    public Circle colorSwitch2;
+    public Circle colorSwitch3;
+    public Circle colorSwitch4;
     @FXML
     private  Pane myPane;
     @FXML
@@ -85,6 +89,11 @@ public class BackgroundCanvas implements Initializable,Runnable {
         star3.setImage(backgroundImage);
         System.out.println("i was called -- background");
         cont.setRotate(smallC,false,360,10);
+        cont.setRotate(colorSwitch1,false,360,10);
+        cont.setRotate(colorSwitch2,false,360,10);
+        cont.setRotate(colorSwitch3,false,360,10);
+        cont.setRotate(colorSwitch4,false,360,10);
+
        arcGroup.setVisible(false);
        rectangle.setVisible(false);
        triangle.setVisible(false);

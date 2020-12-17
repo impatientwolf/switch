@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
    <center>
       <Pane fx:id="myPane" onKeyPressed="#onMouseClicked" onMouseClicked="#onMouseClicked" BorderPane.alignment="CENTER">
          <children>
@@ -143,17 +143,46 @@
                <image>
                   <Image url="@image/starm.png" />
                </image>
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect>
             </ImageView>
             <ImageView fx:id="star3" fitHeight="40.0" fitWidth="40.0" layoutX="322.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/starm.png" />
                </image>
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect>
             </ImageView>
             <ImageView fx:id="star1" fitHeight="40.0" fitWidth="40.0" layoutX="350.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/starm.png" />
                </image>
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect>
             </ImageView>
+            <Circle fx:id="colorSwitch1" fill="#040f06" layoutX="266.0" layoutY="141.0" radius="15.0" stroke="#f2ff00" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+               <effect>
+                  <Bloom threshold="0.36" />
+               </effect>
+            </Circle>
+            <Circle fx:id="colorSwitch2" fill="#040f06" layoutX="266.0" layoutY="212.0" radius="15.0" stroke="AQUA" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+               <effect>
+                  <Bloom threshold="0.4" />
+               </effect>
+            </Circle>
+            <Circle fx:id="colorSwitch3" fill="#040f06" layoutX="266.0" layoutY="284.0" radius="15.0" stroke="#05ff0d" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+               <effect>
+                  <Bloom threshold="0.28" />
+               </effect>
+            </Circle>
+            <Circle fx:id="colorSwitch4" fill="#040f06" layoutX="266.0" layoutY="353.0" radius="15.0" stroke="RED" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+               <effect>
+                  <Bloom threshold="0.0" />
+               </effect>
+            </Circle>
          </children>
       </Pane>
    </center>
