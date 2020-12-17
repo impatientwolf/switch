@@ -24,6 +24,14 @@ import java.util.List;
 
 public class BackgroundCanvas implements Initializable,Runnable {
     @FXML
+    private Circle CirclrStar1;
+    @FXML
+    private Circle CirclrStar2;
+    @FXML
+    private Circle CirclrStar3;
+    @FXML
+    private Circle CirclrStar4;
+    @FXML
     private Circle colorSwitch1;
     @FXML
     private Circle colorSwitch2;
@@ -61,6 +69,8 @@ public class BackgroundCanvas implements Initializable,Runnable {
     private ImageView star3;
     @FXML
     private Group doubleCircle_right;
+
+
 
 
     private static int counter=0;
@@ -179,22 +189,22 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     private  void rotateAll(Group g,ImageView star){  //  rotate and initial formation of objects
         if(g.getId().equals("arcGroup")){
-                myArc= new ArcGroup(g,0,0,star,colorSwitch2);
+                myArc= new ArcGroup(g,0,0,star,colorSwitch2,CirclrStar1);
                 myArc.rotateMe(g,false,360,10);
                 myList.add(myArc);
         }
         else if (g.getId().equals("triangle")){
-            myTriangle=new Triangle(g,0,0,star,colorSwitch1);
+            myTriangle=new Triangle(g,0,0,star,colorSwitch1,CirclrStar2);
             myTriangle.rotateMe(g,false,360,10);
             myList.add(myTriangle);
         }
         else if (g.getId().equals("rectangle")){
-            myRectangle=new Rectangel(g,0,0,star,colorSwitch3);
+            myRectangle=new Rectangel(g,0,0,star,colorSwitch3,CirclrStar3);
             myRectangle.rotateMe(g,false,360,10);
             myList.add(myRectangle);
         }
         else{
-            myDoubleCircles=new DoubleCircle(g,0,0,this.doubleCircle_left,0,0,null,colorSwitch4);//sending right left automatic put
+            myDoubleCircles=new DoubleCircle(g,0,0,this.doubleCircle_left,0,0,null,colorSwitch4,CirclrStar4);//sending right left automatic put
             myDoubleCircles.rotateMe(g,false,360,10);
             myList.add(myDoubleCircles);
         }
@@ -220,6 +230,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      if(obj instanceof ArcGroup){
                          if(obj.Ylayout>850){
                              obj.colorSwitch.setVisible(true);
+                             obj.star.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((ArcGroup) obj).arcGroup);
                              break;
                          }
@@ -228,6 +239,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      else if(obj instanceof Rectangel){
                          if(obj.Ylayout>850){
                              obj.colorSwitch.setVisible(true);
+                             obj.star.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((Rectangel) obj).myRectangle);
                              break;
                          }
@@ -236,6 +248,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      else if(obj instanceof Triangle){
                          if(obj.Ylayout>850){
                              obj.colorSwitch.setVisible(true);
+                             obj.star.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((Triangle) obj).myTriangle);
                              // updateList(obj,((Triangle) obj).myTriangle,i);
                              break;
@@ -245,6 +258,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      else{
                          if(obj.Ylayout>850){
                              obj.colorSwitch.setVisible(true);
+                             //obj.star.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((DoubleCircle) obj).leftCircle);
                          break;
                          }

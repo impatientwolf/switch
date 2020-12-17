@@ -19,8 +19,8 @@ import java.util.Random;
 public class ArcGroup extends Obstacle {
     public Group  arcGroup;
 
-    public ArcGroup(Group myarc,double x,double y,ImageView star,Circle colorSwitch) {
-        super(x,y,star,colorSwitch);
+    public ArcGroup(Group myarc,double x,double y,ImageView star,Circle colorSwitch,Circle colorStar) {
+        super(x,y,star,colorSwitch,colorStar);
         this.arcGroup=myarc;
     }
 
@@ -43,8 +43,11 @@ public class ArcGroup extends Obstacle {
      this.arcGroup.setLayoutY(y);
      this.star.setLayoutY(this.Ylayout-20);
      this.star.setLayoutX(this.Xlayout-20);
+        this.colorStar.setLayoutY(this.Ylayout+4);
+        this.colorStar.setLayoutX(this.Xlayout);
      this.colorSwitch.setLayoutY(this.Ylayout+170);
      this.colorSwitch.setLayoutX(this.Xlayout);
+        this.colorStar.setVisible(false);
        /// System.out.println("star coordinates updated");
     }
 

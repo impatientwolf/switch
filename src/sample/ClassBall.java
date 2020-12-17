@@ -69,16 +69,18 @@ public class ClassBall  {
                     }*/
 
                     if (counter <= 20) {
+
                         if(checkColorSwitch(ball)){
                             ball.setFill(currentColor);
                             ball.setStroke(currentColor);
-
-                            System.out.println("yes touched");
                         }
 
                       if(checkStarCollision(ball)){
-                           score=score+1;
-                           System.out.println("current score -- "+score);
+                          //System.out.println("Yasssssssssssss");
+                          score=score+1;
+                          ///update label----------------------------------------------------------------------
+                          System.out.println("Current score-------  "+score);
+                           //System.out.println("current score -- "+score);
                        }
                         if (ball.getCenterY() <= -330) {
                             counter = 25;
@@ -124,18 +126,21 @@ public class ClassBall  {
     }
 
     public static boolean  checkStarCollision(Circle ball){
-        System.out.println("--------------------------");
 
         for(Obstacle obj:BackgroundCanvas.myList){
             //Obstacle obj=BackgroundCanvas.myList.get(i);
-            if((obj.star!=null)){
+            if((obj.star!=null)&&(obj.star.isVisible())){
                 //System.out.println(BackgroundCanvas.myList.get(i).star.hashCode());
-                System.out.println(obj.Ylayout+"  "+(720+ball.getCenterY()));
+                if(((Path)Shape.intersect(ball,obj.colorStar)).getElements().size()>0){
+                    obj.star.setVisible(false);
+                    System.out.println("Yasssssssssssssssssss");
+                    return true;
+                }
+                //System.out.println(obj.Ylayout+"  "+(720+ball.getCenterY()));
 
          }
         }
-        System.out.println("--------------------------");
-        return false;
+           return false;
     }
     public static boolean checkColorSwitch(Circle ball){
         for(Obstacle o:BackgroundCanvas.myList){

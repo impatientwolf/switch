@@ -15,11 +15,13 @@ public abstract class Obstacle {
     public double Ylayout;
     public ImageView star;
     public Circle colorSwitch;
-    public Obstacle(double xlayout, double ylayout,ImageView star,Circle colorSwitch) {
+    public Circle colorStar;
+    public Obstacle(double xlayout, double ylayout,ImageView star,Circle colorSwitch,Circle colorStar) {
         this.Xlayout = xlayout;
         this.Ylayout = ylayout;
         this.star=star;
         this.colorSwitch=colorSwitch;
+        this.colorStar=colorStar;
     }
 
     public abstract void rotateMe(Group g,boolean reverse, int angle, int duration);
