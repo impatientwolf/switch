@@ -14,15 +14,14 @@ import java.nio.file.Paths;
 
 public class Main extends Application {
 //    public Stage window;
-// #boycott iiitd
     @Override
     public void start(Stage primaryStage) throws Exception{
 //        window=primaryStage;
-        String path = "src/sample/image/music.mp3";
+        String path = "src/sample/image/thor.mp3";
 
-        //Media sound = new Media(Paths.get(path).toUri().toString());
-        //AudioClip mediaPlayer = new AudioClip(sound.getSource());
-//        mediaPlayer.play();
+        Media sound = new Media(Paths.get(path).toUri().toString());
+        AudioClip mediaPlayer = new AudioClip(sound.getSource());
+        mediaPlayer.play();
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Color Switch");
         primaryStage.setScene(new Scene(root, 1080, 720));
