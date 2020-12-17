@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
    <center>
       <Pane fx:id="myPane" onKeyPressed="#onMouseClicked" onMouseClicked="#onMouseClicked" BorderPane.alignment="CENTER">
          <children>
@@ -183,26 +183,43 @@
                   <Bloom threshold="0.0" />
                </effect>
             </Circle>
-            <Circle fx:id="CirclrStar1" fill="#040f06" layoutX="87.0" layoutY="170.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+            <Circle fx:id="CirclrStar1" fill="#040f06" layoutX="116.0" layoutY="257.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
                <effect>
                   <Bloom threshold="0.0" />
                </effect>
             </Circle>
-            <Circle fx:id="CirclrStar2" fill="#040f06" layoutX="109.0" layoutY="227.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+            <Circle fx:id="CirclrStar2" fill="#040f06" layoutX="154.0" layoutY="257.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
                <effect>
                   <Bloom threshold="0.0" />
                </effect>
             </Circle>
-            <Circle fx:id="CirclrStar3" fill="#040f06" layoutX="119.0" layoutY="237.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+            <Circle fx:id="CirclrStar3" fill="#040f06" layoutX="199.0" layoutY="242.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
                <effect>
                   <Bloom threshold="0.0" />
                </effect>
             </Circle>
-            <Circle fx:id="CirclrStar4" fill="#040f06" layoutX="129.0" layoutY="247.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
+            <Circle fx:id="CirclrStar4" fill="#040f06" layoutX="193.0" layoutY="299.0" radius="15.0" stroke="#0013ff" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 23;">
                <effect>
                   <Bloom threshold="0.0" />
                </effect>
             </Circle>
+            <Button layoutX="901.0" layoutY="152.0" mnemonicParsing="false" onAction="#save" text="Button" />
+            <Label layoutX="14.0" layoutY="93.0" text="Score : " textFill="#00eeff">
+               <effect>
+                  <Bloom />
+               </effect>
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="129.0" layoutY="95.0" text="0" textFill="#00eeff">
+               <effect>
+                  <Bloom />
+               </effect>
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>

@@ -194,12 +194,12 @@ public class BackgroundCanvas implements Initializable,Runnable {
                 myList.add(myArc);
         }
         else if (g.getId().equals("triangle")){
-            myTriangle=new Triangle(g,0,0,star,colorSwitch1,CirclrStar2);
+            myTriangle=new Triangle(g,0,0,star,colorSwitch3,CirclrStar2);
             myTriangle.rotateMe(g,false,360,10);
             myList.add(myTriangle);
         }
         else if (g.getId().equals("rectangle")){
-            myRectangle=new Rectangel(g,0,0,star,colorSwitch3,CirclrStar3);
+            myRectangle=new Rectangel(g,0,0,star,colorSwitch1,CirclrStar3);
             myRectangle.rotateMe(g,false,360,10);
             myList.add(myRectangle);
         }
@@ -283,5 +283,11 @@ public class BackgroundCanvas implements Initializable,Runnable {
     @Override
     public void run() {
         //this.updateCoordinates();
+    }
+
+    public void save(ActionEvent actionEvent) throws IOException {
+        Serealize obj=new Serealize();
+        obj.saveButtonClicked();
+        System.out.println("save called");
     }
 }

@@ -20,6 +20,17 @@ public class ClassBall  {
     private static double nYvelocity=Yvelocity*1.1;
     private static int flag=1;
 
+    public static int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        ClassBall.score = score;
+    }
+
+    private static int score=0;
+
+
     public static double getnYvelocity() {
         return nYvelocity;
     }
@@ -51,7 +62,7 @@ public class ClassBall  {
     public static void setYvelocity(double yvelocity) {
         Yvelocity = yvelocity;
     }
-    private static int score=0;
+
 
  private static BackgroundCanvas obj2=new BackgroundCanvas();
     public ClassBall()  {
