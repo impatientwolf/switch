@@ -96,6 +96,14 @@ public class Serealize implements Serializable {
         int FlagColorSwitch; // 1 if yes
 
     }
+    public void loadButtonClicked() throws IOException, ClassNotFoundException {
+        File f=new File("obj.txt");
+        FileInputStream fis=new FileInputStream(f);
+        ObjectInputStream ois=new ObjectInputStream(fis);
+        Serealize o =(Serealize)ois.readObject();
+
+
+    }
 
 
 }

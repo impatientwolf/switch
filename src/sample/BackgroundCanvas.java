@@ -3,26 +3,32 @@ package sample;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import java.awt.*;
+import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.security.PublicKey;
 import java.util.*;
 import java.util.List;
 
 public class BackgroundCanvas implements Initializable,Runnable {
+    public Button restartButton;
+    public Button spendButton;
     @FXML
     private Circle CirclrStar1;
     @FXML
@@ -80,6 +86,17 @@ public class BackgroundCanvas implements Initializable,Runnable {
     Controller cont =new Controller();
 
     public static List<Obstacle > myList=new ArrayList<>(6);
+
+    public Label getScoreLabel() {
+        return scoreLabel;
+    }
+
+    public void setScoreLabel(Label scoreLabel) {
+        this.scoreLabel = scoreLabel;
+    }
+
+    public Label scoreLabel;
+    @FXML
 
     private final ClassBall obj =new ClassBall();
     private AnimationTimer animator;
@@ -289,5 +306,15 @@ public class BackgroundCanvas implements Initializable,Runnable {
         Serealize obj=new Serealize();
         obj.saveButtonClicked(myBall);
         System.out.println("save called");
+    }
+    public static void updateLabel(){
+
+    }
+
+    public void restartButtonClicked(ActionEvent actionEvent) throws IOException {
+
+    }
+
+    public void spendButtonClicked(ActionEvent actionEvent) {
     }
 }

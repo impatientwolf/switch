@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -19,11 +20,10 @@ public class ClassBall  {
     private static double Yvelocity=-5;
     private static double nYvelocity=Yvelocity*1.1;
     private static int flag=1;
-
     public static int getScore() {
         return score;
     }
-
+    Controller cont=new Controller();
     public static void setScore(int score) {
         ClassBall.score = score;
     }
@@ -73,11 +73,11 @@ public class ClassBall  {
         AnimationTimer animator = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (now - last > 100) {/*
+                if (now - last > 100) {
                     if((collisionChecker(ball))){
-
-                        //this.stop();
-                    }*/
+//                        cont.openGameoverScene();
+//                        this.stop();
+                    }
 
                     if (counter <= 20) {
 
@@ -168,5 +168,11 @@ public class ClassBall  {
 
     private static void Sleep() throws InterruptedException {
         if(flag==1)sleep(90);
+    }
+
+    public void restartButtonClicked(ActionEvent actionEvent) {
+    }
+
+    public void spendButtonClicked(ActionEvent actionEvent) {
     }
 }

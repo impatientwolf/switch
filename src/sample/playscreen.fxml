@@ -212,7 +212,7 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="95.0" text="0" textFill="#00eeff">
+            <Label fx:id="scoreLabel" layoutX="129.0" layoutY="95.0" text="0" textFill="#00eeff">
                <effect>
                   <Bloom />
                </effect>

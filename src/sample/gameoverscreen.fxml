@@ -7,8 +7,8 @@
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="restartButton" layoutX="345.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;" text="Restart" />
-                <Button fx:id="spendButton" layoutX="618.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;" text="Resume - Spend Starts" textAlignment="CENTER" />
+                <Button layoutX="345.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#restartButtonClicked" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;" text="Restart" />
+                <Button fx:id="spendButton" layoutX="618.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#spendButtonClicked" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 100;" text="Resume - Spend Starts" textAlignment="CENTER" />
             </children>
         </AnchorPane>
     </center>
