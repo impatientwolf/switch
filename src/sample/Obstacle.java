@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.Group;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
@@ -12,10 +13,13 @@ import java.util.List;
 public abstract class Obstacle {
     public double Xlayout;
     public double Ylayout;
-
-    public Obstacle(double xlayout, double ylayout) {
-        Xlayout = xlayout;
-        Ylayout = ylayout;
+    public ImageView star;
+    public Circle colorSwitch;
+    public Obstacle(double xlayout, double ylayout,ImageView star,Circle colorSwitch) {
+        this.Xlayout = xlayout;
+        this.Ylayout = ylayout;
+        this.star=star;
+        this.colorSwitch=colorSwitch;
     }
 
     public abstract void rotateMe(Group g,boolean reverse, int angle, int duration);

@@ -14,11 +14,11 @@ import java.util.List;
 
 public class Triangle extends Obstacle {
     public Group myTriangle;
-    public ImageView star;
-    public Triangle(Group myTriangle,double x,double y,ImageView star) {
-        super(x,y);
+
+    public Triangle(Group myTriangle,double x,double y,ImageView star,Circle colorSwitch) {
+        super(x,y,star,colorSwitch);
         this.myTriangle = myTriangle;
-        this.star=star;
+
     }
 
     @Override
@@ -40,6 +40,8 @@ public class Triangle extends Obstacle {
         this.myTriangle.setLayoutY(y);
         this.star.setLayoutY(this.Ylayout-20);
         this.star.setLayoutX(this.Xlayout-20);
+        this.colorSwitch.setLayoutY(this.Ylayout+170);
+        this.colorSwitch.setLayoutX(this.Xlayout);
     }
     @Override
     public void updateMyPosition(Pane p, List<Obstacle> myList, Obstacle o, int index,Group g) {

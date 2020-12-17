@@ -14,11 +14,9 @@ import java.util.List;
 
 public class Rectangel extends Obstacle {
     public Group myRectangle;
-    public ImageView star;
-    public Rectangel(Group myRectangle,double x,double y,ImageView star) {
-        super(x,y);
+    public Rectangel(Group myRectangle,double x,double y,ImageView star,Circle colorSwitch) {
+        super(x,y,star,colorSwitch);
         this.myRectangle= myRectangle;
-        this.star=star;
     }
 
     @Override
@@ -39,6 +37,8 @@ public class Rectangel extends Obstacle {
         this.myRectangle.setLayoutX(x);
         this.star.setLayoutY(this.Ylayout-20);
         this.star.setLayoutX(this.Xlayout-20);
+        this.colorSwitch.setLayoutY(this.Ylayout+170);
+        this.colorSwitch.setLayoutX(this.Xlayout);
     }
     @Override
     public void updateMyPosition(Pane p, List<Obstacle> myList, Obstacle o, int index,Group g) {

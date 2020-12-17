@@ -2,6 +2,7 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Shape;
@@ -12,6 +13,7 @@ import java.security.spec.RSAOtherPrimeInfo;
 import static java.lang.Thread.sleep;
 
 public class ClassBall  {
+    private static Paint currentColor;
     private static long last;
     private static long counter=0;
     private static double Yvelocity=-5;
@@ -49,6 +51,7 @@ public class ClassBall  {
     public static void setYvelocity(double yvelocity) {
         Yvelocity = yvelocity;
     }
+    private static int score=0;
 
  private static BackgroundCanvas obj2=new BackgroundCanvas();
     public ClassBall()  {
@@ -66,7 +69,17 @@ public class ClassBall  {
                     }*/
 
                     if (counter <= 20) {
-                        //TestFunction(ball);
+                        if(checkColorSwitch(ball)){
+                            ball.setFill(currentColor);
+                            ball.setStroke(currentColor);
+
+                            System.out.println("yes touched");
+                        }
+
+                      if(checkStarCollision(ball)){
+                           score=score+1;
+                           System.out.println("current score -- "+score);
+                       }
                         if (ball.getCenterY() <= -330) {
                             counter = 25;
                         } else {
@@ -102,6 +115,7 @@ public class ClassBall  {
     private static boolean collisionChecker(Circle ball) {
         for(Obstacle obj:BackgroundCanvas.myList){
             if(obj.checkCollision(obj,ball)){
+
                 return true;
             }
         }
@@ -109,18 +123,32 @@ public class ClassBall  {
 
     }
 
-    public static void checkStarCollision(Circle ball){
-        for(Obstacle o:BackgroundCanvas.myList){
-            if(o instanceof ArcGroup){
+    public static boolean  checkStarCollision(Circle ball){
+        System.out.println("--------------------------");
 
-            }
-            else if(o instanceof Triangle){
+        for(Obstacle obj:BackgroundCanvas.myList){
+            //Obstacle obj=BackgroundCanvas.myList.get(i);
+            if((obj.star!=null)){
+                //System.out.println(BackgroundCanvas.myList.get(i).star.hashCode());
+                System.out.println(obj.Ylayout+"  "+(720+ball.getCenterY()));
 
-            }
-            else if(o instanceof Rectangel){}
-            else{}
+         }
         }
+        System.out.println("--------------------------");
+        return false;
     }
+    public static boolean checkColorSwitch(Circle ball){
+        for(Obstacle o:BackgroundCanvas.myList){
+            if(((Path)Shape.intersect(ball,o.colorSwitch)).getElements().size()>0){
+                currentColor=o.colorSwitch.getStroke();
+                //System.out.println(o.colorSwitch.getStroke());
+                o.colorSwitch.setVisible(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private static void Sleep() throws InterruptedException {
         if(flag==1)sleep(90);

@@ -18,14 +18,19 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.security.PublicKey;
 import java.util.*;
 import java.util.List;
 
 public class BackgroundCanvas implements Initializable,Runnable {
-    public Circle colorSwitch1;
-    public Circle colorSwitch2;
-    public Circle colorSwitch3;
-    public Circle colorSwitch4;
+    @FXML
+    private Circle colorSwitch1;
+    @FXML
+    private Circle colorSwitch2;
+    @FXML
+    private Circle colorSwitch3;
+    @FXML
+    private Circle colorSwitch4;
     @FXML
     private  Pane myPane;
     @FXML
@@ -85,7 +90,11 @@ public class BackgroundCanvas implements Initializable,Runnable {
         File backgroundFile = new File("src/sample/image/starm.png");
         Image backgroundImage = new Image(backgroundFile.toURI().toString());
         star1.setImage(backgroundImage);
+        //backgroundFile = new File("src/sample/image/starm1.png");
+        //backgroundImage = new Image(backgroundFile.toURI().toString());
         star2.setImage(backgroundImage);
+        //backgroundFile = new File("src/sample/image/starm2.png");
+        //backgroundImage = new Image(backgroundFile.toURI().toString());
         star3.setImage(backgroundImage);
         System.out.println("i was called -- background");
         cont.setRotate(smallC,false,360,10);
@@ -118,7 +127,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
         myPane.getChildren().add(myBall);
         //myPane.getChildren().remove(star1);
         //myPane.getChildren().remove(star2);
-        //myPane.getChildren().remove(star3);
+        //myPane.getChildren()..remove(star3);
 
     }
 
@@ -134,7 +143,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
         }
         else{
             //System.out.println("Animation just stopped due to multiple clicked");
-            this.animator.stop();
+            //this.animator.stop();
             ClassBall.setCounter(0);
             ClassBall.setLast(0);
             animator.start();
@@ -170,22 +179,22 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     private  void rotateAll(Group g,ImageView star){  //  rotate and initial formation of objects
         if(g.getId().equals("arcGroup")){
-                myArc= new ArcGroup(g,0,0,star);
+                myArc= new ArcGroup(g,0,0,star,colorSwitch2);
                 myArc.rotateMe(g,false,360,10);
                 myList.add(myArc);
         }
         else if (g.getId().equals("triangle")){
-            myTriangle=new Triangle(g,0,0,star);
+            myTriangle=new Triangle(g,0,0,star,colorSwitch1);
             myTriangle.rotateMe(g,false,360,10);
             myList.add(myTriangle);
         }
         else if (g.getId().equals("rectangle")){
-            myRectangle=new Rectangel(g,0,0,star);
+            myRectangle=new Rectangel(g,0,0,star,colorSwitch3);
             myRectangle.rotateMe(g,false,360,10);
             myList.add(myRectangle);
         }
         else{
-            myDoubleCircles=new DoubleCircle(g,0,0,this.doubleCircle_left,0,0);//sending right left automatic put
+            myDoubleCircles=new DoubleCircle(g,0,0,this.doubleCircle_left,0,0,null,colorSwitch4);//sending right left automatic put
             myDoubleCircles.rotateMe(g,false,360,10);
             myList.add(myDoubleCircles);
         }
@@ -207,8 +216,10 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      // write here if object goes out
                      //System.out.println(myList.toString());
                      Obstacle obj=myList.get(i);
+
                      if(obj instanceof ArcGroup){
                          if(obj.Ylayout>850){
+                             obj.colorSwitch.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((ArcGroup) obj).arcGroup);
                              break;
                          }
@@ -216,6 +227,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      }
                      else if(obj instanceof Rectangel){
                          if(obj.Ylayout>850){
+                             obj.colorSwitch.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((Rectangel) obj).myRectangle);
                              break;
                          }
@@ -223,6 +235,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      }
                      else if(obj instanceof Triangle){
                          if(obj.Ylayout>850){
+                             obj.colorSwitch.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((Triangle) obj).myTriangle);
                              // updateList(obj,((Triangle) obj).myTriangle,i);
                              break;
@@ -231,6 +244,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
                      }
                      else{
                          if(obj.Ylayout>850){
+                             obj.colorSwitch.setVisible(true);
                              obj.updateMyPosition(myPane,myList,obj,i,((DoubleCircle) obj).leftCircle);
                          break;
                          }
@@ -248,6 +262,8 @@ public class BackgroundCanvas implements Initializable,Runnable {
          }
      };
     }
+
+
 
 
     @Override

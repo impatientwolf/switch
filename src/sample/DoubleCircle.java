@@ -9,6 +9,7 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
+import javax.swing.text.html.ImageView;
 import java.util.List;
 
 public class DoubleCircle extends Obstacle{
@@ -19,8 +20,8 @@ public Group rightCircle;
 public double x2;
 public double y2;
 
-    public DoubleCircle( Group leftCircle, double x1, double y1, Group rightCircle, double x2, double y2) {
-        super(x1,y1);
+    public DoubleCircle(Group leftCircle, double x1, double y1, Group rightCircle, double x2, double y2, ImageView star,Circle colorSwitch) {
+        super(x1,y1,null,colorSwitch);
         this.leftCircle = leftCircle;
         this.x1 = x1;
         this.y1 = y1;
@@ -54,6 +55,8 @@ public double y2;
         this.leftCircle.setLayoutY(y);
         this.rightCircle.setLayoutX(x+80);
         this.rightCircle.setLayoutY(y);
+        this.colorSwitch.setLayoutY(this.Ylayout+170);
+        this.colorSwitch.setLayoutX(this.Xlayout);
     }
     @Override
     public void updateMyPosition(Pane p, List<Obstacle> myList, Obstacle o, int index,Group g) {
