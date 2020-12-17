@@ -155,9 +155,20 @@ public class BackgroundCanvas implements Initializable,Runnable {
         //myPane.getChildren().remove(star1);
         //myPane.getChildren().remove(star2);
         //myPane.getChildren()..remove(star3);
-
+//        for (;;){
+//            updatelbl();
+//        }
     }
 
+    public static int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        BackgroundCanvas.score = score;
+    }
+
+    private static int score;
 
     public void onMouseClicked(MouseEvent mouseEvent) throws InterruptedException {
 
@@ -167,6 +178,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
             animator.start();
             System.out.println("Animation just Started");
             animator.start();
+            updatelbl();
         }
         else{
             //System.out.println("Animation just stopped due to multiple clicked");
@@ -176,6 +188,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
             animator.start();
             //System.out.println("Animation just Started again");
             counter=0;
+            updatelbl();
 
             if(myBall.getCenterY()<-310){
 
@@ -237,7 +250,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
          public void handle(long now) {
              if (now - last > 100){
                  //System.out.println("Phase 1 passed");
-                 if(counter<20){
+                 if(counter<20){updatelbl();
                     // System.out.println(Thread.currentThread().getName());
                  for(int i=0;i<myList.size();i++){
                      // write here if object goes out
@@ -307,8 +320,9 @@ public class BackgroundCanvas implements Initializable,Runnable {
         obj.saveButtonClicked(myBall);
         System.out.println("save called");
     }
-    public static void updateLabel(){
 
+    public void updatelbl(){
+        scoreLabel.setText(String.valueOf(score));
     }
 
     public void restartButtonClicked(ActionEvent actionEvent) throws IOException {

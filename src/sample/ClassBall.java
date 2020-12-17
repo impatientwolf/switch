@@ -92,6 +92,7 @@ public class ClassBall  {
                           ///update label----------------------------------------------------------------------
                           System.out.println("Current score-------  "+score);
                            //System.out.println("current score -- "+score);
+                          BackgroundCanvas.setScore(score);
                        }
                         if (ball.getCenterY() <= -330) {
                             counter = 25;
