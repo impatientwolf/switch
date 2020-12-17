@@ -7,6 +7,7 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.Shape;
 
 import java.awt.*;
+import java.security.spec.RSAOtherPrimeInfo;
 
 import static java.lang.Thread.sleep;
 
@@ -58,12 +59,12 @@ public class ClassBall  {
         AnimationTimer animator = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (now - last > 100) {
+                if (now - last > 100) {/*
                     if((collisionChecker(ball))){
 
                         //this.stop();
-                    }
-                    else{
+                    }*/
+
                     if (counter <= 20) {
                         //TestFunction(ball);
                         if (ball.getCenterY() <= -330) {
@@ -93,7 +94,7 @@ public class ClassBall  {
                 }
                 }
 
-            }
+
         };
         return animator;
     }
@@ -108,7 +109,18 @@ public class ClassBall  {
 
     }
 
+    public static void checkStarCollision(Circle ball){
+        for(Obstacle o:BackgroundCanvas.myList){
+            if(o instanceof ArcGroup){
 
+            }
+            else if(o instanceof Triangle){
+
+            }
+            else if(o instanceof Rectangel){}
+            else{}
+        }
+    }
 
     private static void Sleep() throws InterruptedException {
         if(flag==1)sleep(90);

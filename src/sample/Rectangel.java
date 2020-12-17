@@ -3,6 +3,7 @@ package sample;
 import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Path;
@@ -13,10 +14,11 @@ import java.util.List;
 
 public class Rectangel extends Obstacle {
     public Group myRectangle;
-
-    public Rectangel(Group myRectangle,double x,double y) {
+    public ImageView star;
+    public Rectangel(Group myRectangle,double x,double y,ImageView star) {
         super(x,y);
         this.myRectangle= myRectangle;
+        this.star=star;
     }
 
     @Override
@@ -35,6 +37,8 @@ public class Rectangel extends Obstacle {
         this.Ylayout=y;
         this.myRectangle.setLayoutY(y);
         this.myRectangle.setLayoutX(x);
+        this.star.setLayoutY(this.Ylayout-20);
+        this.star.setLayoutX(this.Xlayout-20);
     }
     @Override
     public void updateMyPosition(Pane p, List<Obstacle> myList, Obstacle o, int index,Group g) {

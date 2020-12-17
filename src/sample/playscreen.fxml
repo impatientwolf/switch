@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #040f06;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BackgroundCanvas">
    <center>
       <Pane fx:id="myPane" onKeyPressed="#onMouseClicked" onMouseClicked="#onMouseClicked" BorderPane.alignment="CENTER">
          <children>
@@ -61,11 +61,6 @@
                         <Bloom threshold="0.0" />
                      </effect>
                   </Arc>
-                  <ImageView fx:id="star1" fitHeight="40.0" fitWidth="40.0" layoutX="-20.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/starm.png" />
-                     </image>
-                  </ImageView>
                </children>
             </Group>
             <Circle fx:id="myBall" fill="#f2ff00" layoutX="501.0" layoutY="650.0" radius="13.0" stroke="#f2ff00" strokeType="INSIDE">
@@ -82,11 +77,6 @@
                   <Line endX="100.0" rotate="90.0" startX="-100.0" stroke="#05ff0d" strokeWidth="15.0" translateX="-100.0" />
                   <Line endX="100.0" startX="-100.0" stroke="RED" strokeWidth="15.0" translateY="100.0" />
                   <Line endX="100.0" startX="-100.0" stroke="AQUA" strokeWidth="15.0" translateY="-100.0" />
-                  <ImageView fx:id="star3" fitHeight="40.0" fitWidth="40.0" layoutX="-15.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/starm.png" />
-                     </image>
-                  </ImageView>
                </children>
                <effect>
                   <Bloom threshold="0.0" />
@@ -96,11 +86,6 @@
                   <Line endX="100.0" layoutX="-1.0" layoutY="96.0" startX="-100.0" stroke="RED" strokeWidth="15.0" />
                   <Line endX="100.0" rotate="60.0" startX="-100.0" stroke="AQUA" strokeWidth="15.0" translateX="50.0" />
                   <Line endX="100.0" rotate="-60.0" startX="-100.0" stroke="#05ff0d" strokeWidth="15.0" translateX="-50.0" />
-                  <ImageView fx:id="star2" fitHeight="40.0" fitWidth="40.0" layoutX="-21.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/starm.png" />
-                     </image>
-                  </ImageView>
                </children>
                <effect>
                   <Bloom threshold="0.0" />
@@ -154,6 +139,21 @@
                   </Arc>
                </children>
             </Group>
+            <ImageView fx:id="star2" fitHeight="40.0" fitWidth="40.0" layoutX="40.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/starm.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="star3" fitHeight="40.0" fitWidth="40.0" layoutX="322.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/starm.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="star1" fitHeight="40.0" fitWidth="40.0" layoutX="350.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/starm.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </center>

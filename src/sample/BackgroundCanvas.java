@@ -11,9 +11,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 
-import javax.swing.text.html.ImageView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -64,20 +67,22 @@ public class BackgroundCanvas implements Initializable,Runnable {
     private int animatorFlag=0;
 
 
-
-    public  Group getArcGroup() {
-        return arcGroup;
-    }
     private ArcGroup myArc;
     private Triangle myTriangle;
     private Rectangel myRectangle;
     private DoubleCircle myDoubleCircles;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        // System.out.println(myBall.getLayoutX());
         //System.out.println(myBall.getLayoutY());
+        File backgroundFile = new File("src/sample/image/starm.png");
+        Image backgroundImage = new Image(backgroundFile.toURI().toString());
+        star1.setImage(backgroundImage);
+        star2.setImage(backgroundImage);
+        star3.setImage(backgroundImage);
         System.out.println("i was called -- background");
         cont.setRotate(smallC,false,360,10);
        arcGroup.setVisible(false);
@@ -85,22 +90,26 @@ public class BackgroundCanvas implements Initializable,Runnable {
        triangle.setVisible(false);
        doubleCircle_left.setVisible(false);
        doubleCircle_right.setVisible(false);
-       this.rotateAll(arcGroup);
-       this.rotateAll(triangle);
-       this.rotateAll(rectangle);
+       this.rotateAll(arcGroup,star1);
+       this.rotateAll(triangle,star2);
+       this.rotateAll(rectangle,star3);
        //this.rotateAll(doubleCircle_left);
-       this.rotateAll(doubleCircle_right);
-       myPane.getChildren().removeAll(arcGroup,rectangle,triangle,doubleCircle_left,doubleCircle_right);
-       myPane.getChildren().addAll(myRectangle.myRectangle,myTriangle.myTriangle,myArc.arcGroup,myDoubleCircles.leftCircle,myDoubleCircles.rightCircle);
+       this.rotateAll(doubleCircle_right,star1);
+       myPane.getChildren().removeAll(arcGroup,rectangle,triangle,doubleCircle_left,doubleCircle_right,star1,star2,star3);
+       myPane.getChildren().addAll(myRectangle.myRectangle,myTriangle.myTriangle,myArc.arcGroup,myDoubleCircles.leftCircle,myDoubleCircles.rightCircle,myArc.star,myTriangle.star,myRectangle.star);
        myRectangle.myRectangle.setVisible(true);
        myTriangle.myTriangle.setVisible(true);
        myArc.arcGroup.setVisible(true);
        myDoubleCircles.leftCircle.setVisible(true);
        myDoubleCircles.rightCircle.setVisible(true);
+       myArc.star.setVisible(true);myTriangle.star.setVisible(true);myRectangle.star.setVisible(true);
        Obstacle.arrangeObstacles(myList,myPane);
         obstacleTimeline=this.updateCoordinates();
         myPane.getChildren().remove(myBall);
         myPane.getChildren().add(myBall);
+        //myPane.getChildren().remove(star1);
+        //myPane.getChildren().remove(star2);
+        //myPane.getChildren().remove(star3);
 
     }
 
@@ -150,19 +159,19 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     }
 
-    private  void rotateAll(Group g){  //rotate and initial formation of objects
+    private  void rotateAll(Group g,ImageView star){  //  rotate and initial formation of objects
         if(g.getId().equals("arcGroup")){
-                myArc= new ArcGroup(g,0,0);
+                myArc= new ArcGroup(g,0,0,star);
                 myArc.rotateMe(g,false,360,10);
                 myList.add(myArc);
         }
         else if (g.getId().equals("triangle")){
-            myTriangle=new Triangle(g,0,0);
+            myTriangle=new Triangle(g,0,0,star);
             myTriangle.rotateMe(g,false,360,10);
             myList.add(myTriangle);
         }
         else if (g.getId().equals("rectangle")){
-            myRectangle=new Rectangel(g,0,0);
+            myRectangle=new Rectangel(g,0,0,star);
             myRectangle.rotateMe(g,false,360,10);
             myList.add(myRectangle);
         }

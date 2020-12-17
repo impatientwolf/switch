@@ -2,6 +2,7 @@ package sample;
 
 import javafx.animation.RotateTransition;
 import javafx.scene.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -17,9 +18,11 @@ import java.util.Random;
 
 public class ArcGroup extends Obstacle {
     public Group  arcGroup;
-    public ArcGroup(Group myarc,double x,double y) {
+    public ImageView star;
+    public ArcGroup(Group myarc,double x,double y,ImageView star) {
         super(x,y);
         this.arcGroup=myarc;
+        this.star=star;
     }
 
 
@@ -39,6 +42,9 @@ public class ArcGroup extends Obstacle {
      this.Ylayout=y;
      this.arcGroup.setLayoutX(x);
      this.arcGroup.setLayoutY(y);
+     this.star.setLayoutY(this.Ylayout-20);
+     this.star.setLayoutX(this.Xlayout-20);
+       /// System.out.println("star coordinates updated");
     }
 
     @Override
