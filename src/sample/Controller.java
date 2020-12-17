@@ -12,6 +12,7 @@ package sample;
         import javafx.scene.Node;
         import javafx.scene.Parent;
         import javafx.scene.Scene;
+        import javafx.scene.control.Button;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.AnchorPane;
@@ -30,6 +31,7 @@ package sample;
 
 public class Controller<onMouseClicked> implements Initializable {
 
+    public Button settingsButton;
     @FXML
     private Circle c1;
     @FXML
@@ -152,15 +154,16 @@ public class Controller<onMouseClicked> implements Initializable {
 //        primaryStage.setScene(playScene);
 //        primaryStage.show();
 //    }
-    public void openGameoverScene(ActionEvent actionEvent) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("gameoverscreen.fxml"));
-        Scene playscreen = new Scene(root);
-        Stage primaryStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        primaryStage.setTitle("Game Over");
-        primaryStage.setScene(playscreen);
-        primaryStage.show();
-    }
+//    public void openGameoverScene() throws IOException{
+//        Parent root = FXMLLoader.load(getClass().getResource("gameoverscreen.fxml"));
+//        Scene playscreen = new Scene(root);
+//        Stage primaryStage = new Stage();
+//        primaryStage.setTitle("Game Over");
+//        primaryStage.setScene(playscreen);
+//        primaryStage.show();
+//    }
     public void print(){System.out.println("heyaaaaaaaaa");}
+
 }
 
 

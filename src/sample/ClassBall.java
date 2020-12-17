@@ -2,13 +2,18 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.IOException;
 import java.security.spec.RSAOtherPrimeInfo;
 
 import static java.lang.Thread.sleep;
@@ -20,10 +25,11 @@ public class ClassBall  {
     private static double Yvelocity=-5;
     private static double nYvelocity=Yvelocity*1.1;
     private static int flag=1;
+    private ActionEvent actionEvent;
     public static int getScore() {
         return score;
     }
-    Controller cont=new Controller();
+     Controller cont=new Controller();
     public static void setScore(int score) {
         ClassBall.score = score;
     }
@@ -74,10 +80,21 @@ public class ClassBall  {
             @Override
             public void handle(long now) {
                 if (now - last > 100) {
-                    /*if((collisionChecker(ball))){
-//                        cont.openGameoverScene();
-//                        this.stop();
-                    }*/
+                    if((collisionChecker(ball))){
+
+                        this.stop();
+                        Parent root = null;
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("gameoverscreen.fxml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Scene playscreen = new Scene(root);
+                        Stage primaryStage = new Stage();
+                        primaryStage.setTitle("Game Over");
+                        primaryStage.setScene(playscreen);
+                        primaryStage.show();
+                    }
 
                     if (counter <= 20) {
 

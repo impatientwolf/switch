@@ -27,8 +27,9 @@ import java.util.*;
 import java.util.List;
 
 public class BackgroundCanvas implements Initializable,Runnable {
-    public Button restartButton;
+
     public Button spendButton;
+    public Button saveButton;
     @FXML
     private Circle CirclrStar1;
     @FXML
