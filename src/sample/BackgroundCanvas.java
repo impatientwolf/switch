@@ -287,7 +287,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
 
     public void save(ActionEvent actionEvent) throws IOException {
         Serealize obj=new Serealize();
-        obj.saveButtonClicked();
+        obj.saveButtonClicked(myBall);
         System.out.println("save called");
     }
 }

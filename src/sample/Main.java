@@ -20,8 +20,8 @@ public class Main extends Application {
 //        window=primaryStage;
         String path = "src/sample/image/music.mp3";
 
-        Media sound = new Media(Paths.get(path).toUri().toString());
-        AudioClip mediaPlayer = new AudioClip(sound.getSource());
+        //Media sound = new Media(Paths.get(path).toUri().toString());
+        //AudioClip mediaPlayer = new AudioClip(sound.getSource());
 //        mediaPlayer.play();
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Color Switch");
