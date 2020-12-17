@@ -19,8 +19,8 @@ public class Serealize implements Serializable {
     }
 
     private int score=0;
-    private double ballCentreX;
-    private  double ballCentrey;
+    public double ballCentreX;
+    public   double ballCentrey;
 
 
     public void saveButtonClicked(Circle ball) throws IOException {
@@ -79,9 +79,12 @@ public class Serealize implements Serializable {
        s.ballCentrey=ball.getCenterY();
        s.score=ClassBall.getScore();
 
+
+       //double a=s.ballCentreX;
+
  //        s.setMyList();
 //        s.setScore();
-       File f=new File("obj,txt");
+       File f=new File("obj.txt");
         FileOutputStream fos=new FileOutputStream(f);
         ObjectOutputStream oos= new ObjectOutputStream(fos);
         oos.writeObject(s);
@@ -96,13 +99,15 @@ public class Serealize implements Serializable {
         int FlagColorSwitch; // 1 if yes
 
     }
-    public void loadButtonClicked() throws IOException, ClassNotFoundException {
+    public void loadButtonClicked(Circle ball) throws IOException, ClassNotFoundException {
         File f=new File("obj.txt");
         FileInputStream fis=new FileInputStream(f);
         ObjectInputStream ois=new ObjectInputStream(fis);
         Serealize o =(Serealize)ois.readObject();
-
-
+      BackgroundCanvas.updateDeserilise(o);
+        System.out.println("doing deserilise");
+        ball.setCenterX(o.ballCentreX);
+        ball.setCenterY(o.ballCentrey);
     }
 
 

@@ -74,10 +74,10 @@ public class ClassBall  {
             @Override
             public void handle(long now) {
                 if (now - last > 100) {
-                    if((collisionChecker(ball))){
+                    /*if((collisionChecker(ball))){
 //                        cont.openGameoverScene();
 //                        this.stop();
-                    }
+                    }*/
 
                     if (counter <= 20) {
 

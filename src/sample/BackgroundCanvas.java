@@ -58,7 +58,7 @@ public class BackgroundCanvas implements Initializable,Runnable {
     @FXML
     private Circle smallC;
     @FXML
-    private Circle myBall;
+    private  Circle  myBall;
     @FXML
     private  Group arcGroup;
     @FXML
@@ -318,7 +318,89 @@ public class BackgroundCanvas implements Initializable,Runnable {
     public void spendButtonClicked(ActionEvent actionEvent) {
     }
 
-    public void load(ActionEvent actionEvent) {
-
+    public void load(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+        Serealize obj=new Serealize();
+        obj.loadButtonClicked(myBall);
+        System.out.println("Load called");
     }
-}
+
+
+    public static void updateDeserilise(Serealize obj) {
+        //myBall.setCenterX(obj.ballCentreX);
+        //myBall.setCenterY(obj.ballCentrey);
+
+        System.out.println("i was called ------------");
+        for (int i = 0; i < obj.myList.size(); i++) {
+            if (obj.myList.get(i).flag == 1) {
+                for (int j = 0; j < myList.size(); j++) {
+                    if (myList.get(j) instanceof ArcGroup) {
+                        myList.get(j).arrangeMe(obj.myList.get(i).Xlayout, obj.myList.get(i).Ylayout);
+                        myList.get(j).colorStar.setVisible(false);
+                        if (obj.myList.get(i).Flagstar == 1) {
+                            myList.get(j).star.setVisible(true);
+                        } else {
+                            myList.get(j).star.setVisible(false);
+                        }
+                        if (obj.myList.get(i).FlagColorSwitch == 1) {
+                            myList.get(j).colorSwitch.setVisible(true);
+                        } else {
+                            myList.get(j).colorSwitch.setVisible(false);
+                        }
+                    }
+                }
+            }
+            if (obj.myList.get(i).flag == 2) {
+                for (int j = 0; j < myList.size(); j++) {
+                    if (myList.get(j) instanceof Triangle) {
+                        myList.get(j).arrangeMe(obj.myList.get(i).Xlayout, obj.myList.get(i).Ylayout);
+                        myList.get(j).colorStar.setVisible(false);
+                        if (obj.myList.get(i).Flagstar == 1) {
+                            myList.get(j).star.setVisible(true);
+                        } else {
+                            myList.get(j).star.setVisible(false);
+                        }
+                        if (obj.myList.get(i).FlagColorSwitch == 1) {
+                            myList.get(j).colorSwitch.setVisible(true);
+                        } else {
+                            myList.get(j).colorSwitch.setVisible(false);
+                        }
+                    }
+                }
+            }
+            if (obj.myList.get(i).flag == 3) {
+                for (int j = 0; j < myList.size(); j++) {
+                    if (myList.get(j) instanceof Rectangel) {
+                        myList.get(j).arrangeMe(obj.myList.get(i).Xlayout, obj.myList.get(i).Ylayout);
+                        myList.get(j).colorStar.setVisible(false);
+                        if (obj.myList.get(i).Flagstar == 1) {
+                            myList.get(j).star.setVisible(true);
+                        } else {
+                            myList.get(j).star.setVisible(false);
+                        }
+                        if (obj.myList.get(i).FlagColorSwitch == 1) {
+                            myList.get(j).colorSwitch.setVisible(true);
+                        } else {
+                            myList.get(j).colorSwitch.setVisible(false);
+                        }
+                    }
+                }
+            }
+            if (obj.myList.get(i).flag == 4) {
+                for (int j = 0; j < myList.size(); j++) {
+                    if (myList.get(j) instanceof DoubleCircle) {
+                        myList.get(j).arrangeMe(obj.myList.get(i).Xlayout, obj.myList.get(i).Ylayout);
+                        myList.get(j).colorStar.setVisible(false);
+                        if (obj.myList.get(i).Flagstar == 1) {
+                            //myList.get(j).star.setVisible(true);
+                        } else {//myList.get(j).star.setVisible(false);}
+                            if (obj.myList.get(i).FlagColorSwitch == 1) {
+                                myList.get(j).colorSwitch.setVisible(true);
+                            } else {
+                                myList.get(j).colorSwitch.setVisible(false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }}
